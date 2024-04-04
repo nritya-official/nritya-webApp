@@ -16,8 +16,8 @@ function Footer() {
     borderRadius: "10px",
     padding: "10px",
     textAlign: "center",
-    background: isDarkModeOn ? '#333333' : '#f8f8f8',
-    color: isDarkModeOn ? 'white' : 'black', // Text color
+    background: isDarkModeOn ? 'white' : '#f8f8f8',
+    color: isDarkModeOn ? 'black' : 'black', // Text color
     radius: '5%',
   };
 
@@ -34,7 +34,7 @@ function Footer() {
                   Showcase your dance studio or workshops to a wide audience of dance enthusiasts. Get started today and
                   reach out to your potential customers!
                 </p> 
-                <Button style={{ backgroundColor: isDarkModeOn ? '#892CDC' : 'black', color:'white' }} href={isLoggedIn ? '#/modifyStudios' : '#/login'}>List Now</Button>
+                <Button style={{width:'15rem',borderRadius: "12px", border: "1px solid #79747E",textTransform: 'none' , backgroundColor:  'black' , color:'white',margin:"auto"}} href={isLoggedIn ? '#/modifyStudios' : '#/login'}>List Now</Button>
               </Card.Body>
             </Card>
           </Col>

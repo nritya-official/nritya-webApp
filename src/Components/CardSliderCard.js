@@ -33,23 +33,25 @@ const CardSliderCard = ({ studio }) => {
     <Card className={cardSliderClass} style={{borderRadius:'1rem'}}>
         <Card.Header>
         <Card.Img  src={imageUrl? imageUrl :"https://cdn.pixabay.com/photo/2016/12/30/10/03/dance-1940245_960_720.jpg"} alt={`Studio ${studio.id}`} />
+        {/* <p style={{color: isDarkModeOn?'white':'black' }}>{studio.studioName}</p>
+        <StarRating rating={studio.avgRating} viewMode={true}/> */}
         </Card.Header>
         
-        <Card.Body>
-            <p style={{color: isDarkModeOn?'white':'black' }}>{studio.studioName}</p>
+        {/* <Card.Body>
+            
             {studio && studio.danceStyles && studio.danceStyles.split(",").map((form, index) => (
             <Badge
-              key={index}
-              bg={index % 2 === 0 ? "danger" : "info"} // Alternate badge colors
-              className="me-2 rounded-pill"
-              style={{ marginBottom: "10px", fontSize: '0.8rem' }}
+              // key={index}
+              // bg={index % 2 === 0 ? "danger" : "info"} // Alternate badge colors
+              // className="me-2 rounded-pill"
+              // style={{ marginBottom: "10px", fontSize: '0.8rem' }}
             >
               {form.trim()}
             </Badge>
           ))}
             <StarRating rating={studio.avgRating} viewMode={true}/>
-            {/* Add other text elements here */}
-        </Card.Body>
+            
+        </Card.Body> */}
     </Card>
     </a>
 

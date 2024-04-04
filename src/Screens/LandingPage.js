@@ -22,6 +22,7 @@ import ResponsiveText from "../Components/ResponsiveText";
 import { FaSearch } from 'react-icons/fa';
 import LocationComponent from "../Components/LocationComponent";
 
+
 // Define the array of dance forms with their names and corresponding icons
 const danceForms = [
   { name: "Bollywood", icon: faMusic },
@@ -111,6 +112,21 @@ function LandingPage() {
     padding: "2px",
   };
 
+  const squareStyles = {
+    
+      backgroundColor: 'grey',
+      color: 'white',
+      padding: '25px 10px',
+      fontSize: '54px',
+      borderRadius: '5px',
+      transition: 'background-color 0.3s ease', // Optional: Add transition for smooth hover effect
+    
+    hover: {
+      backgroundColor: '#892CDC',
+    }
+  };
+  
+
   // For smaller screens (sm)
   const smallScreenMediaQuery = "@media (max-width: 768px)";
   const smallScreenOverlayStyle = {
@@ -189,6 +205,7 @@ function LandingPage() {
     background: isDarkModeOn ? '#333333' : 'white',
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
     borderRadius: "10px",
+    
   };
 
   useEffect(() => {
@@ -241,21 +258,21 @@ function LandingPage() {
 
   return (
     <div className="landing-page" >
-      <Container className="my-5">
+      <Container className="my-5" style={{background:"#F4F4F4", width:'350vh'}}>
         <Row>
           <Col>
             <Carousel >
               {danceImages.map((image, index) => (
                 <Carousel.Item key={index}>
-                {window.innerWidth > 768 && ( // Show the overlay only when the screen is larger than 768 pixels
+                {/* {window.innerWidth > 768 && ( // Show the overlay only when the screen is larger than 768 pixels
                   <div style={currentOverlayStyle}>
                     <h1 style={currentTitleStyle}>{overlayCards[index].title}</h1>
                     <p className="carousel-text" style={currentSubtitleStyle}>
                       {overlayCards[index].text}
                     </p>
                   </div>
-                )}
-                <img src={image} alt={`Carousel Item ${index + 1}`} style={{ height: window.innerWidth > 768 ? '50vh' : `${imageHeight}px`, width: "100%",objectFit: "cover" }} />
+                )} */}
+                <img src={image} alt={`Carousel Item ${index + 1}`} style={{ height: window.innerWidth > 768 ? '68vh' : `${imageHeight}px`, width: "90%",objectFit: "cover" ,marginLeft:62,marginTop:35}} />
                 
                 </Carousel.Item>
               
@@ -265,12 +282,12 @@ function LandingPage() {
         </Row>
         <br />
         <Row>
-          {recentlyWatchedStudios.length > 0 && <h3 style={{color: isDarkModeOn ? 'white' : 'black'}}> <FontAwesomeIcon icon={faClock} size="1x" /> History</h3>}
+          {recentlyWatchedStudios.length > 0 && <h3 style={{color: isDarkModeOn ? 'black' : 'white'}}> <FontAwesomeIcon icon={faClock} size="1x" /> History</h3>}
           <CardSlider dataList={recentlyWatchedStudios} imgOnly={false}/>
         </Row>
         <br />
   
-        <ResponsiveText isDarkModeOn={isDarkModeOn} text={"Studios & workshops"} />
+        <ResponsiveText isDarkModeOn={isDarkModeOn} text={"Explore Studios near you"} />
 
 
           <br />
@@ -281,20 +298,28 @@ function LandingPage() {
             justifyContent: 'center',
           }}>
             <ButtonGroup>
-              <Button
-                size="lg" size-md="md" size-sm="sm" className="rounded-pill"
+              <Button   
+                size="lg" size-md="md" size-sm="sm" className={squareStyles }
                 style={{
-                  backgroundColor: isDarkModeOn ? '#892CDC' : 'black',
-                  color: isDarkModeOn ? 'black' : 'white',
-                  padding: '5px 10px', // Adjust padding
-                  fontSize: '14px', // Adjust font size
-                }}
+                  backgroundColor: 'grey',
+                  color: isDarkModeOn ? 'grey' : 'white',
+                  padding: '50px 00px', // Adjust padding
+                  fontSize: '44px', // Adjust font size
+                  borderRadius: '12px',
+                  }}
                 href="#/search/studios"
               >
-                <ResponsiveText isDarkModeOn={isDarkModeOn} text={"🔎 Search Studios"} heading={false} />
+                <ResponsiveText isDarkModeOn={isDarkModeOn}
+                style={{
+                  fontSize:'45px',
+                  color:"black"
+                  
+
+                }}
+                text={"Explore Studios"} heading={false}/>
               </Button>
 
-              <Button
+              {/* <Button
                 size="lg" size-md="md" size-sm="sm" className="rounded-pill"
                 style={{
                   backgroundColor: isDarkModeOn ? '#892CDC' : 'black',
@@ -306,17 +331,18 @@ function LandingPage() {
                 disabled
               >
                 <ResponsiveText isDarkModeOn={isDarkModeOn} text={"🔎 Search Workshops"} heading={false} />
-              </Button>
+              </Button> */}
             </ButtonGroup>
 
           </Row>
 
         <br/>
+        <ResponsiveText isDarkModeOn={isDarkModeOn} text={"Suggested Studios"} />
         <Row>
             <CardSlider dataList={exploreCards} imgOnly={false}/>
         </Row>
         <br/>
-        <h2 hidden style={{color: isDarkModeOn ? 'white' : 'black'}} >BROWSE BY GENRE</h2>
+        <h2 hidden style={{color: isDarkModeOn ? 'black' : 'white'}} >BROWSE BY DANCE FORMS</h2>
         <Row hidden>
           {danceForms.map((danceForm, index) => (
             <Col key={index} sm={6} md={4} lg={3}>

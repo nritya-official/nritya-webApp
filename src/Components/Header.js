@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import { Nav, Navbar, Button, Offcanvas, Dropdown,Image } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faShoppingCart, faMapMarker } from '@fortawesome/free-solid-svg-icons'; // Import the cart icon
-
+import TextField from "@mui/material/TextField";
 import { useNavigate } from 'react-router-dom';
 import logo from './../logo.png';
 import { adminLoginFn, adminLogoutFn } from '../reduxStore/adminLoginSlice';
@@ -55,8 +55,15 @@ function Header() {
   const styleObj = {
     fontSize: 10,
     textAlign: "center",
-    background: isDarkModeOn ? '#292929' : '#cccccc',
+    background: isDarkModeOn ? 'black' : '#cccccc',
+    height:"108px"
     }
+  const StyleLogo={
+    width: 100,
+     height: 100,
+     marginLeft:"310px"
+
+  }
     
     function getUserNameInitials() {
       const displayName = currentUser.displayName;
@@ -124,15 +131,15 @@ function Header() {
     <Navbar style={styleObj} expand="lg" collapseOnSelect >
       <Container fluid>
         <Navbar.Brand href="/nritya-webApp" style={{textTransform: 'none'}}  >
-          <Image style={{ width: 60, height: 60}}
-            src={logo}
+          <Image 
+            src={logo} style={StyleLogo} 
             alt="Logo" 
             roundedCircle={true}      
          />        
         </Navbar.Brand>
         <div>
         <meta charset="UTF-8" />
-          <h1 style={{ color: isDarkModeOn ? 'white' : 'black',fontSize:25 , textAlign: 'center', textIndent:'right',textTransform: 'none',  fontFamily:'Times Roman', paddingRight:80}}>{'            नृtya'}</h1>
+          <h1 style={{ color: isDarkModeOn ? 'white' : 'black',fontSize:18 ,fontWeight:0.9,marginLeft:-27, textAlign: 'center', textIndent:'right',textTransform: 'none',  fontFamily:'Times Roman', paddingRight:70}}>{'NRITYA'}</h1>
         </div>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -141,8 +148,17 @@ function Header() {
             navbarScroll
           >
           </Nav>
-
-          <Nav className="ms-auto" >
+          <div className="main">
+      
+      <div className="search">
+        <TextField
+          id="outlined-basic"
+          variant="outlined"
+          fullWidth  style={{ background: isDarkModeOn ? '#ECE6F0' : 'black',fontSize:1 , borderRadius:8,width:"270px" ,height:"48px",color:'black'}}
+          label="Search"/>
+      </div>
+      </div>
+          <Nav className="ms-auto" style={{marginRight:'22.5rem'}} >
           <div style={{marginRight: '0.5rem'}}>
             <span
             onClick={handleToggleDarkMode}
@@ -153,38 +169,40 @@ function Header() {
               border: 'none',   
               borderRadius: '50%',   
               width: '3rem',  
-              height: '3rem',   
+              height: '2rem',   
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               cursor: 'pointer',    
             }}
           >
-            {isDarkModeOn ? '🌜' : '🌞'} {   }
+            
             </span>
           </div>
           
           {currentUser ? (
-             <> <Button   className="me-2 rounded-pill" href="#/cart" style={{ textTransform: 'none', backgroundColor: isDarkModeOn ? '#892CDC' : 'black', color:'white' }} >
-              <FontAwesomeIcon icon={faShoppingCart} />
-              </Button>
-              <Button   className="me-2 rounded-pill"  href="#/modifyStudios" style={{textTransform: 'none' , backgroundColor: isDarkModeOn ? '#892CDC' : 'black', color:'white'}}>List Studios</Button>
+             <> 
+             {/* <Button   className="me-2 rounded-pill" href="#/cart" style={{ textTransform: 'none', backgroundColor: isDarkModeOn ? '#892CDC' : 'black', color:'white' }} >
+              <FontAwesomeIcon icon={faShoppingCart} /> */}
+              {/* </Button> */}
+              <Button   className="me-2 "  href="#/modifyStudios" style={{width:'15rem',borderRadius: "12px", border: "1px solid #79747E",textTransform: 'none' , backgroundColor: isDarkModeOn ? 'black' : 'black', color:'white',margin:"auto"}}>List Studios</Button>
             </>
           ) : (
             <>
-              <Button   className="me-2 rounded-pill" href="#/cart" style={{ textTransform: 'none', backgroundColor: isDarkModeOn ? '#892CDC' : 'black', color:'white' }} >
+              {/* <Button   className="me-2 rounded-pill" href="#/cart" style={{ textTransform: 'none', backgroundColor: isDarkModeOn ? '#892CDC' : 'black', color:'white' }} >
               <FontAwesomeIcon icon={faShoppingCart} />
-            </Button>
+            </Button> */}
               <Button   className="me-2 rounded-pill" href="#/login" style={{textTransform: 'none', backgroundColor: isDarkModeOn ? '#892CDC' : 'black', color:'white'}}> List Studios</Button>
             </>
           )}
           <div className="position-relative location-dropdown-container">
           <Button
-                className="me-2 rounded-pill"
+                className="me-2 "
                 onClick={() => setShowLocationDropdown(!showLocationDropdown)}
                 style={{
-                  cursor: 'pointer',
-                  textTransform: 'none', backgroundColor: isDarkModeOn ? '#892CDC' : 'black', color:'white'
+                  borderRadius: "12px", border: "1px solid #79747E",
+                  cursor: 'pointer', width:"15rem",
+                  textTransform: 'none', backgroundColor: isDarkModeOn ? 'black' : 'white', color:'white',marginLeft:"50px"
                 }}
               >
                 <FontAwesomeIcon icon={faMapMarker} className="me-2" />
@@ -220,10 +238,10 @@ function Header() {
 
          {currentUser ? (
             <Nav>
-              <Button onClick={openProfileOffcanvas} variant="outline-warning" className=" rounded-pill"
-                style={{fontSize: '1rem', backgroundColor: isDarkModeOn?'#892CDC' : 'black',  
+              <Button onClick={openProfileOffcanvas}  className=" rounded-pill"
+                style={{fontSize: '1rem', backgroundColor: isDarkModeOn?'black' : 'black',  
                   color: isDarkModeOn ? 'white' : 'white', borderRadius: '50%',   
-                  width: '3rem',  height: '3rem',   display: 'flex',
+                  width: '3rem',  height: '3rem',   display: 'flex', border:"2px solid #79747E",
                   alignItems: 'center',justifyContent: 'center',cursor: 'pointer',  marginRight: '0.5rem'  
                 }}>
                   {getUserNameInitials()} 

@@ -25,6 +25,10 @@ import CreatorStudio from './Screens/CreatorStudio';
 import CreatorDashboard from './Screens/CreatorDashboard';
 import CreatorInstructor from './Screens/CreatorInstructor';
 import LocationComponent from './Components/LocationComponent';
+import {Divider as MuiDivider} from '@mui/material';
+import AboutUs from './Screens/About';
+import ContactUs from './Screens/ContactUs';
+import MyBookings from './Components/MyBookings';
 
 function App() {
   const isDarkModeOn = useSelector(selectDarkModeStatus); // Use useSelector to access isDarkModeOn
@@ -81,31 +85,30 @@ function App() {
   console.log("hi:",process.env.REACT_APP_TRY)
   return (
     <HashRouter  >
-    
-      <Header username={username} isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>
+       <Header username={username} isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>
       <div style={{backgroundColor: isDarkModeOn ? 'black' : 'white'}} hidden>
         <span
           onClick={handleToggleDarkMode}
           style={{
-            fontSize: '1.5rem', // Set font size to 1.5rem
+            fontSize: '1.5rem', 
             backgroundColor: isDarkModeOn ? 'black' : 'yellow', // White for dark mode, yellow for light mode
             color: isDarkModeOn ? 'yellow' : 'white', // Yellow text for dark mode, white for light mode
-            border: 'none', // Remove the button border
+            border: 'none', 
             borderRadius: '50%', // Make the element round
-            width: '3rem', // Set a fixed width
-            height: '3rem', // Set a fixed height
+            width: '3rem', 
+            height: '3rem', 
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            cursor: 'pointer', // Change cursor to a pointer to indicate it's clickable
+            cursor: 'pointer',
           }}
         >
           {isDarkModeOn ? '🌜' : '🌞'} {/* Moon for dark mode, Sun for light mode */}
         </span>
       </div>
-
-      <main className='py-1' style={{backgroundColor: isDarkModeOn ? 'black' : 'white'}}>
-        <Container>
+      <hr style={{ borderColor: isDarkModeOn ? '#292929' : '#cccccc', borderWidth: '0.01px', margin: '0px 0px' }} />
+      <main className='py-1' style={{backgroundColor: isDarkModeOn ? 'black' : 'white',width: '100%'}} >
+        <Container fluid>
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<LoginPage onLogin={handleLogin} setIsLoggedIn={setIsLoggedIn} />} />
@@ -118,6 +121,7 @@ function App() {
               <Route path='/cplans' element={<CreatorPlans/>}/>
               <Route path='/orders' element={<Order/>}/>
               <Route path='/cart' element={<Cart/>}/>
+              <Route path='/myBookings' element={<MyBookings/>}/>
               <Route path='/transactions' element={<Transactions/>}/>
               <Route path='/creatorDashboard' element={<CreatorDashboard/>}/>
               <Route path='/modifyStudios' element={<CreatorStudio/>}/>
@@ -125,12 +129,13 @@ function App() {
             </Route>
             <Route path='/n-admin' element={<AdminPage/>}/>
             <Route path='/n-trail' element={<Trail/>}/>
+            <Route path='/aboutus' element={<AboutUs/>}/>
+            <Route path='/contactus' element={<ContactUs/>}/>
           </Routes>
         </Container>
       </main>
-     
+
       <Footer />
-      
     </HashRouter>
   );
 }
