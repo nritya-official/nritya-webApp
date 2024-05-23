@@ -1,25 +1,27 @@
 {
   "files": {
     "main.css": "/nritya-webApp/static/css/main.ac4a7d15.css",
-    "main.js": "/nritya-webApp/static/js/main.708b0e57.js",
+    "main.js": "/nritya-webApp/static/js/main.f14682b0.js",
     "static/js/703.095d544c.chunk.js": "/nritya-webApp/static/js/703.095d544c.chunk.js",
     "static/js/198.303a3a4a.chunk.js": "/nritya-webApp/static/js/198.303a3a4a.chunk.js",
     "static/js/787.edb38bba.chunk.js": "/nritya-webApp/static/js/787.edb38bba.chunk.js",
     "static/media/Dance1.jpg": "/nritya-webApp/static/media/Dance1.f4c41a79f8997a2bb07d.jpg",
     "static/media/logo.png": "/nritya-webApp/static/media/logo.aacdd5500f6cc7277585.png",
+    "static/media/logo_small.jpg": "/nritya-webApp/static/media/logo_small.97ba57efaf1918198f74.jpg",
+    "static/media/logo_large.png": "/nritya-webApp/static/media/logo_large.7047b93ad512b13bac28.png",
     "static/media/slick.svg": "/nritya-webApp/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/nritya-webApp/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/nritya-webApp/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/nritya-webApp/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/nritya-webApp/index.html",
     "main.ac4a7d15.css.map": "/nritya-webApp/static/css/main.ac4a7d15.css.map",
-    "main.708b0e57.js.map": "/nritya-webApp/static/js/main.708b0e57.js.map",
+    "main.f14682b0.js.map": "/nritya-webApp/static/js/main.f14682b0.js.map",
     "703.095d544c.chunk.js.map": "/nritya-webApp/static/js/703.095d544c.chunk.js.map",
     "198.303a3a4a.chunk.js.map": "/nritya-webApp/static/js/198.303a3a4a.chunk.js.map",
     "787.edb38bba.chunk.js.map": "/nritya-webApp/static/js/787.edb38bba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ac4a7d15.css",
-    "static/js/main.708b0e57.js"
+    "static/js/main.f14682b0.js"
   ]
 }
