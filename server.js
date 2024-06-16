@@ -3,6 +3,19 @@ const path = require('path');
 
 const app = express();
 
+
+process.env.NODE_ENV = "PRODUCTION"; 
+
+if (process.env.NODE_ENV === "PRODUCTION") {
+  app.use((req, res, next) => {
+    if (req.header('x-forwarded-proto') !== 'https') {
+      res.redirect(`https://${req.header('host')}${req.url}`);
+    } else {
+      next();
+    }
+  });
+}
+
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, './build')));
 
