@@ -73,6 +73,7 @@ function LoginPage({onLogin,setIsLoggedIn}) {
         onLogin({"UserId":user.uid,"email":user.email,"isPremium":user.isPremium,"displayName":user.displayName,"WorkshopCreated":user.WorkshopCreated,"WorkshopEnrolled":user.WorkshopEnrolled},user);
         setIsLoggedIn(true);
         await addUserIfMissing(user);
+
         navigate(`/profile`);
       } catch (error) {
         const errorCode = error.code;
@@ -93,7 +94,6 @@ function LoginPage({onLogin,setIsLoggedIn}) {
                 onSubmit={(e) => {
                   e.preventDefault(); // Prevent form submission
                   signin(); // Call your signin function on form submission
-                  alert("Form Submitted")
                 }}
                 style={{
                   display: 'flex',

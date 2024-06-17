@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 import LoginModalForm from "./LoginModalForm";
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import { Theme } from '@mui/material/styles';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -14,7 +15,17 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   }
 }));
 
-const LoginModalDailog = ({open, handleClose, setIsLoggedIn }) => {
+const useStyles = (theme: Theme) => ({
+  backDrop: {
+    backdropFilter: "blur(3px)",
+    backgroundColor: 'rgba(0,0,30,0.4)'
+  },
+});
+
+
+
+const LoginModalDailog = ({open, handleClose }) => {
+  const classes = useStyles();
     return (
 
         <React.Fragment>
@@ -23,13 +34,11 @@ const LoginModalDailog = ({open, handleClose, setIsLoggedIn }) => {
             aria-labelledby="customized-dialog-title"
             open={open}
             maxWidth='xs'
-            sx={{
-              '& .MuiModal-backdrop': {
-                backgroundColor: 'rgba(233, 236, 239, 0.4)',
-                backdropFilter: 'blur(10px)'
+            BackdropProps={{
+              classes: {
+                root: classes.backDrop,
               },
             }}
-          
           >
           <IconButton
             aria-label="close"
