@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/nritya-webApp/static/css/main.56ba05aa.css",
-    "main.js": "/nritya-webApp/static/js/main.9cf9dba4.js",
+    "main.js": "/nritya-webApp/static/js/main.c567d976.js",
     "static/js/703.095d544c.chunk.js": "/nritya-webApp/static/js/703.095d544c.chunk.js",
     "static/js/198.303a3a4a.chunk.js": "/nritya-webApp/static/js/198.303a3a4a.chunk.js",
     "static/js/787.edb38bba.chunk.js": "/nritya-webApp/static/js/787.edb38bba.chunk.js",
@@ -20,13 +20,13 @@
     "static/media/slick.woff": "/nritya-webApp/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/nritya-webApp/index.html",
     "main.56ba05aa.css.map": "/nritya-webApp/static/css/main.56ba05aa.css.map",
-    "main.9cf9dba4.js.map": "/nritya-webApp/static/js/main.9cf9dba4.js.map",
+    "main.c567d976.js.map": "/nritya-webApp/static/js/main.c567d976.js.map",
     "703.095d544c.chunk.js.map": "/nritya-webApp/static/js/703.095d544c.chunk.js.map",
     "198.303a3a4a.chunk.js.map": "/nritya-webApp/static/js/198.303a3a4a.chunk.js.map",
     "787.edb38bba.chunk.js.map": "/nritya-webApp/static/js/787.edb38bba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.56ba05aa.css",
-    "static/js/main.9cf9dba4.js"
+    "static/js/main.c567d976.js"
   ]
 }
