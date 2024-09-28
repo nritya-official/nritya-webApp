@@ -4,7 +4,7 @@ const path = require('path');
 const app = express();
 
 
-process.env.NODE_ENV = "PRODUCTION"; 
+process.env.NODE_ENV = "PRODUCTION1"; 
 
 if (process.env.NODE_ENV === "PRODUCTION") {
   app.use((req, res, next) => {
