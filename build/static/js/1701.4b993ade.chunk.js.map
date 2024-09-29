@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/1701.4b993ade.chunk.js","mappings":"qKAUA,QARA,WACE,OACEA,EAAAA,EAAAA,KAAA,SAIJ,C","sources":["Screens/Order.js"],"sourcesContent":["import React from 'react'\n\nfunction Order() {\n  return (\n    <div>\n      \n    </div>\n  )\n}\n\nexport default Order\n"],"names":["_jsx"],"sourceRoot":""}
