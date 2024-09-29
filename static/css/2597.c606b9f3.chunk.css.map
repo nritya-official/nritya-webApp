@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/2597.c606b9f3.chunk.css","mappings":"AAEA,cACI,wBACF,CAEA,oBACE,eAEF","sources":["Components/NrityaSVG.css"],"sourcesContent":["/* NrityaSVG.css */\n\n.hover-effect {\n    transition: fill 0.3s ease;\n  }\n  \n  .hover-effect:hover {\n    font-size: 1.1em; \n\n  }\n  "],"names":[],"sourceRoot":""}
