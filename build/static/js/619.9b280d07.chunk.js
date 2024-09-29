@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunknritya_webApp=self.webpackChunknritya_webApp||[]).push([[619],{71619:(e,n,r)=>{r.r(n),r.d(n,{default:()=>s});r(72791);var t=r(80184);const s=function(){return(0,t.jsx)("div",{children:(0,t.jsx)("h1",{children:"Cart"})})}}}]);
+//# sourceMappingURL=619.9b280d07.chunk.js.map
