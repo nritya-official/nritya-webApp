@@ -137,6 +137,8 @@ const SearchPage = () => {
       selectedSearchType ||
       "studio";
 
+    const storedSelectedDanceForms = JSON.parse(localStorage.getItem(FILTER_DANCE_FORMS_KEY) || "[]");
+
     if (query == null) {
       setQuery("");
     }
@@ -150,8 +152,8 @@ const SearchPage = () => {
       apiEndpoint += `&entity=${encodeURIComponent(entity)}`;
     }
 
-    if (selectedDanceForms.length > 0) {
-      apiEndpoint += `&danceStyle=${encodeURIComponent(selectedDanceForms.join(","))}`;
+    if (storedSelectedDanceForms.length > 0) {
+      apiEndpoint += `&danceStyle=${encodeURIComponent(storedSelectedDanceForms.join(","))}`;
     }
 
     if (entity !== COLLECTIONS.STUDIO && selectedLevel && selectedLevel !== LEVELS.ALL) {
@@ -392,7 +394,7 @@ const SearchPage = () => {
           </MuiGrid>
           <br></br>
           <Row className="align-items-center">
-          <div className="horizontal-scroll-wrapper-for-filters"> 
+          <div className="horizontal-scroll-wrapper-for-filters">        {/* Studio, Workshops, Open Classes, Courses */}
             {searchTypes.map((searchType) => (
               <Col key={searchType.name} xs="auto" style={{ marginTop: "0.5rem" }}>
                 <MuiChip
@@ -404,6 +406,7 @@ const SearchPage = () => {
                     color: selectedSearchType === searchType.name ? "white" : "black",
                     borderRadius: '10px',
                     fontWeight: 'bold',
+                    border: `1px solid ${isDarkModeOn ? "white" : "black"}`, // Set border color based on dark mode
                     "&:hover": {
                       bgcolor: isDarkModeOn 
                         ? (selectedSearchType === searchType.name ? "black" : "white") 
@@ -411,6 +414,7 @@ const SearchPage = () => {
                       color: isDarkModeOn 
                         ? (selectedSearchType === searchType.name ? "white" : "black") // Change to blue in dark mode
                         : (selectedSearchType === searchType.name ? "black" : "white"), // Ensure text is black in light mode
+                        borderColor: isDarkModeOn ? "white" : "black", // Keep border color consistent on hover
                     }
                   }}
                   onClick={() => handleSearchTypeClick(searchType.name)}
@@ -422,7 +426,7 @@ const SearchPage = () => {
 
           <Row className="align-items-center">
           <div className="horizontal-scroll-wrapper-for-filters"> 
-            <Col xs="auto" style={{ marginTop: "0.5rem" }}>
+            <Col xs="auto" style={{ marginTop: "0.5rem" }}>             {/* Filter */}
               <MuiBadge
                 onClick={toggleFilters}
                 badgeContent={activeFilters}
