@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/nritya-webApp/static/css/main.704aa723.css",
-    "main.js": "/nritya-webApp/static/js/main.6f6b0f16.js",
+    "main.js": "/nritya-webApp/static/js/main.30b1d020.js",
     "static/css/9709.20c8af4a.chunk.css": "/nritya-webApp/static/css/9709.20c8af4a.chunk.css",
     "static/js/9709.bc3b93cd.chunk.js": "/nritya-webApp/static/js/9709.bc3b93cd.chunk.js",
     "static/js/53.c331002e.chunk.js": "/nritya-webApp/static/js/53.c331002e.chunk.js",
@@ -74,7 +74,7 @@
     "static/js/328.14c1b569.chunk.js": "/nritya-webApp/static/js/328.14c1b569.chunk.js",
     "static/js/4590.a61e1d78.chunk.js": "/nritya-webApp/static/js/4590.a61e1d78.chunk.js",
     "static/js/9935.3dbf97b6.chunk.js": "/nritya-webApp/static/js/9935.3dbf97b6.chunk.js",
-    "static/js/4515.0c04c9d8.chunk.js": "/nritya-webApp/static/js/4515.0c04c9d8.chunk.js",
+    "static/js/4894.5ac50cd8.chunk.js": "/nritya-webApp/static/js/4894.5ac50cd8.chunk.js",
     "static/js/9806.36e06cce.chunk.js": "/nritya-webApp/static/js/9806.36e06cce.chunk.js",
     "static/js/839.020719b3.chunk.js": "/nritya-webApp/static/js/839.020719b3.chunk.js",
     "static/js/3685.5a6f36b9.chunk.js": "/nritya-webApp/static/js/3685.5a6f36b9.chunk.js",
@@ -89,7 +89,7 @@
     "static/js/4056.1d9f1af5.chunk.js": "/nritya-webApp/static/js/4056.1d9f1af5.chunk.js",
     "static/js/8503.8846ec35.chunk.js": "/nritya-webApp/static/js/8503.8846ec35.chunk.js",
     "static/js/2184.d908b4b7.chunk.js": "/nritya-webApp/static/js/2184.d908b4b7.chunk.js",
-    "static/js/1893.eb72d648.chunk.js": "/nritya-webApp/static/js/1893.eb72d648.chunk.js",
+    "static/js/1893.129f288b.chunk.js": "/nritya-webApp/static/js/1893.129f288b.chunk.js",
     "static/js/8393.19893619.chunk.js": "/nritya-webApp/static/js/8393.19893619.chunk.js",
     "static/js/4122.43adefdc.chunk.js": "/nritya-webApp/static/js/4122.43adefdc.chunk.js",
     "static/media/ticket-dance-image-1.png": "/nritya-webApp/static/media/ticket-dance-image-1.c724b50d879e15d44648.png",
@@ -109,7 +109,7 @@
     "static/media/slick.woff": "/nritya-webApp/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/nritya-webApp/index.html",
     "main.704aa723.css.map": "/nritya-webApp/static/css/main.704aa723.css.map",
-    "main.6f6b0f16.js.map": "/nritya-webApp/static/js/main.6f6b0f16.js.map",
+    "main.30b1d020.js.map": "/nritya-webApp/static/js/main.30b1d020.js.map",
     "9709.20c8af4a.chunk.css.map": "/nritya-webApp/static/css/9709.20c8af4a.chunk.css.map",
     "9709.bc3b93cd.chunk.js.map": "/nritya-webApp/static/js/9709.bc3b93cd.chunk.js.map",
     "53.c331002e.chunk.js.map": "/nritya-webApp/static/js/53.c331002e.chunk.js.map",
@@ -182,7 +182,7 @@
     "328.14c1b569.chunk.js.map": "/nritya-webApp/static/js/328.14c1b569.chunk.js.map",
     "4590.a61e1d78.chunk.js.map": "/nritya-webApp/static/js/4590.a61e1d78.chunk.js.map",
     "9935.3dbf97b6.chunk.js.map": "/nritya-webApp/static/js/9935.3dbf97b6.chunk.js.map",
-    "4515.0c04c9d8.chunk.js.map": "/nritya-webApp/static/js/4515.0c04c9d8.chunk.js.map",
+    "4894.5ac50cd8.chunk.js.map": "/nritya-webApp/static/js/4894.5ac50cd8.chunk.js.map",
     "9806.36e06cce.chunk.js.map": "/nritya-webApp/static/js/9806.36e06cce.chunk.js.map",
     "839.020719b3.chunk.js.map": "/nritya-webApp/static/js/839.020719b3.chunk.js.map",
     "3685.5a6f36b9.chunk.js.map": "/nritya-webApp/static/js/3685.5a6f36b9.chunk.js.map",
@@ -197,12 +197,12 @@
     "4056.1d9f1af5.chunk.js.map": "/nritya-webApp/static/js/4056.1d9f1af5.chunk.js.map",
     "8503.8846ec35.chunk.js.map": "/nritya-webApp/static/js/8503.8846ec35.chunk.js.map",
     "2184.d908b4b7.chunk.js.map": "/nritya-webApp/static/js/2184.d908b4b7.chunk.js.map",
-    "1893.eb72d648.chunk.js.map": "/nritya-webApp/static/js/1893.eb72d648.chunk.js.map",
+    "1893.129f288b.chunk.js.map": "/nritya-webApp/static/js/1893.129f288b.chunk.js.map",
     "8393.19893619.chunk.js.map": "/nritya-webApp/static/js/8393.19893619.chunk.js.map",
     "4122.43adefdc.chunk.js.map": "/nritya-webApp/static/js/4122.43adefdc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.704aa723.css",
-    "static/js/main.6f6b0f16.js"
+    "static/js/main.30b1d020.js"
   ]
 }
