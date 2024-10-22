@@ -1,0 +1,2 @@
+.horizontal-scroll-wrapper-for-filters{-ms-overflow-style:none;display:flex;overflow-x:auto;overflow-y:hidden;padding:10px 0;scrollbar-width:none;white-space:nowrap}.horizontal-scroll-wrapper-for-filters::-webkit-scrollbar{display:none}.autocomplete-input{margin:0 auto;transition:width .3s;width:50%}@media (max-width:770px){.autocomplete-input{width:100%}}@media (max-width:600px){#responsiveInput::placeholder{content:"Small Screen Placeholder"}}
+/*# sourceMappingURL=3467.f59f5c42.chunk.css.map*/
