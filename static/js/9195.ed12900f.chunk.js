@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunknritya_webApp=self.webpackChunknritya_webApp||[]).push([[9195],{29195:(e,t,a)=>{a.r(t),a.d(t,{default:()=>o});a(72791);var n=a(5180),c=a(83708),l=a(39441),p=a(80184);const o=function(){return(0,p.jsx)(n.u,{children:(0,p.jsx)(l.Z,{entityCollectionName:c.Ul.WORKSHOPS,storageCollectionName:c.Rb.WORKSHOPICON,defaultImageUrl:"https://cdn.pixabay.com/photo/2016/12/30/10/03/dance-1940245_960_720.jpg"})})}}}]);
+//# sourceMappingURL=9195.ed12900f.chunk.js.map
