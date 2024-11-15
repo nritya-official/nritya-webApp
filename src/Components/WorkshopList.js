@@ -48,7 +48,7 @@ function WorkshopList({ bookingData, setWorkshopClickTicket }) {
                                 variant="h6"
                                 component="span"
                                 sx={{
-                                    fontSize: { xs: "28px", md: "48px" },
+                                    fontSize: bookingData.entity_name.length > 20 ? { xs: "20px", md: "36px" } : { xs: "28px", md: "48px" },
                                     fontWeight: "700",
                                     lineHeight: "58.56px",
                                     fontFamily: "Instrument Sans"
