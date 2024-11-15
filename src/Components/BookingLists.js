@@ -30,7 +30,7 @@ function BookingLists({ bookingData, setCurrentClickTicket }) {
                         }}
                         onClick={() => setCurrentClickTicket(bookingData)}
                     >
-                        <Box
+                        {/* <Box
                             bgcolor="#735EAB"
                             color="white"
                             px={{ xs: 4, md: 8 }} // Padding adapts to screen size
@@ -92,6 +92,81 @@ function BookingLists({ bookingData, setCurrentClickTicket }) {
                                 >
                                     Booking ID: {bookingData.id}
                                 </Typography>
+                            </Box>
+                        </Box> */}
+                        <Box
+                            bgcolor="#735EAB"
+                            color="white"
+                            px={{ xs: 4, md: 8 }} // Padding adapts to screen size
+                            py={3} // Added vertical padding
+                            borderRadius="15px"
+                            display="flex"
+                            justifyContent="space-between"
+                            flexDirection={{ xs: "column", md: "column" }} // Stack content vertically on small screens
+                            sx={{
+                            width: { xs: "100%", md: "800px" },
+                            height: { xs: "auto", md: "150px" }
+                            }}
+                        >
+                            <Box display="flex" flexDirection="column" alignSelf={{sm:"center", md:"start"}}>
+                            <Typography
+                                variant="h6"
+                                component="h2"
+                                sx={{
+                                textAlign: { xs: 'center' },
+                                fontSize: { xs: "28px", md: "48px" },
+                                fontWeight: "700",
+                                lineHeight: "58.56px",
+                                fontFamily: "Instrument Sans",
+                                color: "#FFFFFF",
+                                wordWrap: 'break-word'
+                                }}
+                            >
+                            {bookingData.name_class}
+                            </Typography>
+
+                            </Box>
+                            <Box
+                            display="flex"
+                            flexDirection={{ xs: "column", md: "row" }}
+                            justifyContent={{md:"space-between"}}
+                            // alignSelf={{ xs: "center", md: "end" }}
+                            mt={{ xs: 2, md: 0 }} // Margin on small screens
+                            >
+                            <Box>
+                                <Typography
+                                variant="body2"
+                                sx={{
+                                    textAlign: { xs: 'center' },
+                                    fontSize: { xs: "16px", md: "24px" },
+                                    fontWeight: "600",
+                                    lineHeight: "29.28px",
+                                    fontFamily: "Instrument Sans",
+                                    color: "#D9D9D9"
+                                }}
+                                >
+                                Ticket for 1
+                                </Typography>
+                            </Box>
+
+                            <Box  >
+                                <Typography
+                                variant="body2"
+                                sx={{
+                                    textAlign: { xs: 'center' },
+                                    fontSize: { xs: "16px", md: "24px" },
+                                    fontWeight: "600",
+                                    lineHeight: "29.28px",
+                                    fontFamily: "Instrument Sans",
+                                    color: "#D9D9D9",
+                                    wordWrap: 'break-word',
+                                    // marginBottom: 2
+                                }}
+                                >
+                                Booking ID: {bookingData.id}
+                                </Typography>
+                            </Box>
+
                             </Box>
                         </Box>
 
