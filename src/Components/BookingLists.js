@@ -114,7 +114,7 @@ function BookingLists({ bookingData, setCurrentClickTicket }) {
                                 component="h2"
                                 sx={{
                                 textAlign: { xs: 'center' },
-                                fontSize: { xs: "28px", md: "48px" },
+                                fontSize:  bookingData.name_class.length > 20 ? { xs: "20px", md: "36px" } : { xs: "28px", md: "48px" },
                                 fontWeight: "700",
                                 lineHeight: "58.56px",
                                 fontFamily: "Instrument Sans",
