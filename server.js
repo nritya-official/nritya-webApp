@@ -8,7 +8,7 @@ const app = express();
 // Start Prerender server in the same process
 const prerenderServer = prerender({
   chromeLocation: '/usr/bin/google-chrome-stable', // Heroku environment variable
-  logRequests: true, // Optional: Logs requests
+  logRequests: true, // Optional Logs requests
 });
 prerenderServer.start();
 
