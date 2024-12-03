@@ -32,4 +32,4 @@ app.listen(port, () => {
 });
 
 // Start Prerender server on a different port
-prerenderServer.startServer(port + 1);
+server.start(port + 1);
