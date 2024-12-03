@@ -10,7 +10,6 @@ const prerenderServer = prerender({
   chromeLocation: '/app/.chrome-for-testing/chrome-linux64/chrome', // Heroku environment variable
   logRequests: true, // Optional Logs requests
 });
-prerenderServer.start();
 
 // Set up Prerender middleware to use the internal server
 app.use(
@@ -31,5 +30,8 @@ app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
 
-// Start Prerender server on a different port
-server.start(port + 1);
+// Start the Prerender server on a different port (5001)
+prerenderServer.listen(5001, () => {
+  console.log('Prerender server running on port 5001');
+});
+
