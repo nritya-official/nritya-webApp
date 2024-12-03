@@ -10,11 +10,12 @@ const prerenderServer = prerender({
   chromeLocation: '/app/.chrome-for-testing/chrome-linux64/chrome', // Heroku environment variable
   logRequests: true, // Optional Logs requests
 });
-*/
+
 // Set up Prerender middleware to use the internal server
 app.use(
   prerenderMiddleware.set('prerenderServiceUrl', 'http://localhost:5001/') // Use local Prerender server
 );
+*/
 
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, 'build')));
