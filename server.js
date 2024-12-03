@@ -30,8 +30,3 @@ app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
 
-// Start the Prerender server on a different port (5001)
-prerenderServer.listen(5001, () => {
-  console.log('Prerender server running on port 5001');
-});
-
