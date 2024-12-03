@@ -9,12 +9,12 @@ const app = express();
 const prerenderServer = prerender({
   chromeLocation: '/app/.chrome-for-testing/chrome-linux64/chrome', // Heroku environment variable
   logRequests: true, // Optional Logs requests
-  port: 5001,
+  port: 3001,
 });
 
 // Set up Prerender middleware to use the internal server
 app.use(
-  prerenderMiddleware.set('prerenderServiceUrl', 'http://localhost:5001/') // Use local Prerender server
+  prerenderMiddleware.set('prerenderServiceUrl', 'http://localhost:3001/') // Use local Prerender server
 );
 
 // Serve the static files from the React app
@@ -26,7 +26,7 @@ app.get('*', (req, res) => {
 });
 
 // Start the server
-const port = 5000;
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
