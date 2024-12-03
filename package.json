@@ -6,6 +6,7 @@
     "dependencies": {
         "express": "^4.19.2",
         "path": "^0.12.7",
+        "prerender": "^5.21.6",
         "prerender-node": "^3.8.0"
     },
     "scripts": {
