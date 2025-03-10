@@ -207,7 +207,7 @@ function StudioUpdate({
         setSelectedStudio(studioDoc.data());
         if (studioDoc.data().geolocation) {
           const loc = studioDoc.data().geolocation;
-          setSelectedLocation(loc);
+          setSelectedLocation(loc || null);
           //console.log("StudioUpdate Selected location",selectedLocation,loc)
         }
 
@@ -257,6 +257,13 @@ function StudioUpdate({
     const nameIdLocal = event.target.nameId.value;
     const indexOfColon = nameIdLocal.lastIndexOf(":");
     const studioId = nameIdLocal.substring(indexOfColon + 1).trim();
+
+    if (!studioId) {
+      //console.log("Invalid or empty studio id")
+      return;
+    }
+
+    //console.log(studioId)
 
     if (!studioId) {
       //console.log("Invalid or empty studio id")
@@ -819,11 +826,7 @@ function StudioUpdate({
 
           <Form.Label>Save exact Address</Form.Label>
           <MapsInput
-            selectedLocation={
-              selectedStudio && selectedStudio.geolocation
-                ? selectedStudio.geolocation
-                : selectedLocation
-            }
+            selectedLocation={selectedLocation}
             setSelectedLocation={setSelectedLocation}
           ></MapsInput>
         </Row>
