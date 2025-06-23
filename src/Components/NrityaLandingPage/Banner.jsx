@@ -1,18 +1,18 @@
 import { useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
-import bannerBgImage from "../../assets/images/banner-bg.png";
+import bannerBgImage from "../../../public/assets/images/banner-bg.png";
 import { selectDarkModeStatus } from "../../redux/selectors/darkModeSelector";
-import banner1 from "../../assets/images/banner-1.jpg";
-import banner2 from "../../assets/images/banner-2.png";
-import banner3 from "../../assets/images/banner-3.jpg";
-import banner4 from "../../assets/images/banner-4.png";
-import banner5 from "../../assets/images/banner-5.jpg";
-import banner6 from "../../assets/images/banner-6.jpg";
+import banner1 from "../../../public/assets/images/banner-1.jpg";
+import banner2 from "../../../public/assets/images/banner-2.png";
+import banner3 from "../../../public/assets/images/banner-3.jpg";
+import banner4 from "../../../public/assets/images/banner-4.png";
+import banner5 from "../../../public/assets/images/banner-5.jpg";
+import banner6 from "../../../public/assets/images/banner-6.jpg";
 
 const leftImages = [
   {
-    src: banner1,
+    src: banner1.src,
     height: 220,
     offset: true,
     transform: "translateY(20px)",
@@ -22,7 +22,7 @@ const leftImages = [
     scaleOnHover: 1.1,
   },
   {
-    src: banner2,
+    src: banner2.src,
     height: 250,
     offset: false,
     transform: "translateY(-10px)",
@@ -32,7 +32,7 @@ const leftImages = [
     scaleOnHover: 1.08,
   },
   {
-    src: banner3,
+    src: banner3.src,
     height: 300,
     offset: false,
     transform: "translateY(5px)",
@@ -45,7 +45,7 @@ const leftImages = [
 
 const rightImages = [
   {
-    src: banner4,
+    src: banner4.src,
     height: 280,
     offset: false,
     transform: "translateY(-15px)",
@@ -55,7 +55,7 @@ const rightImages = [
     scaleOnHover: 1.15,
   },
   {
-    src: banner5,
+    src: banner5.src,
     height: 260,
     offset: false,
     transform: "translateY(10px)",
@@ -65,7 +65,7 @@ const rightImages = [
     scaleOnHover: 1.1,
   },
   {
-    src: banner6,
+    src: banner6.src,
     height: 235,
     offset: true,
     transform: "translateY(-5px)",
@@ -154,7 +154,7 @@ const Banner = ({ scrollToGetInTouchSection }) => {
           left: 0,
           width: "100%",
           height: "100%",
-          backgroundImage: `url(${bannerBgImage})`,
+          backgroundImage: `url(${bannerBgImage.src})`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           backgroundSize: { xs: "cover", md: "300px 125%" },

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { BsCheck2 } from "react-icons/bs";
 import { Box, Container, Divider, Typography } from "@mui/material";
 import { selectDarkModeStatus } from "../../redux/selectors/darkModeSelector";
-import communityImg from "../../assets/images/comminity.jpg";
+import communityImg from "../../../public/assets/images/comminity.jpg";
 
 const Community = () => {
   const isDarkMode = useSelector(selectDarkModeStatus);
@@ -118,7 +118,7 @@ const Community = () => {
           }}
         >
           <img
-            src={communityImg}
+            src={communityImg.src}
             alt=""
             style={{
               width: "100%",

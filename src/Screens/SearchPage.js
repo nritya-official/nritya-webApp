@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+'use client';
 import { useSelector } from "react-redux";
 import { selectDarkModeStatus } from "../redux/selectors/darkModeSelector";
 import {Form, Button, Col,Row, Modal, ButtonGroup,

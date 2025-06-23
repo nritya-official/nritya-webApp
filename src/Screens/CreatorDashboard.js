@@ -39,7 +39,7 @@ function CreatorDashboard() {
     fetchCounts();
   }, [currentUser]);
   
-  const isDashboardModuleVisible = process.env.REACT_APP_DASHBOARD_MODULES_VISIBLE === "true";
+  const isDashboardModuleVisible = process.env.NEXT_PUBLIC_DASHBOARD_MODULES_VISIBLE === "true";
   const cardItems = [
     { title: "Total Studios", data: counts.studiosCount, link: "#/modifyStudios" },
     { title: "Total Instructors", data: counts.instructorsCount, link: "#/modifyInstructors" },

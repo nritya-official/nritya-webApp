@@ -24,7 +24,7 @@ import {
 import { selectDarkModeStatus } from "../../redux/selectors/darkModeSelector";
 import indianCities from "../../cities.json";
 import indianStates from "../../states.json";
-import getInTouch from "../../assets/images/get-in-touch.png";
+import getInTouch from "../../../public/assets/images/get-in-touch.png";
 
 const GetInTouch = forwardRef((_, getInTouchSectionRef) => {
   const leftRef = useRef(null);
@@ -146,7 +146,7 @@ const GetInTouch = forwardRef((_, getInTouchSectionRef) => {
           }}
         >
           <img
-            src={getInTouch}
+            src={getInTouch.src}
             alt=""
             style={{ width: "100%", height: "100%", objectFit: "fill" }}
           />

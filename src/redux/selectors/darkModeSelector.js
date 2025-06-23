@@ -1,3 +1,4 @@
+'use client';
 export const selectDarkModeStatus = (state) => {
     // Try to get the dark mode status from localStorage
     const localStorageDarkMode = localStorage.getItem('darkModeOn');

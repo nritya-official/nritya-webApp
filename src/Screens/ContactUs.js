@@ -1,12 +1,14 @@
+'use client';
 import React, { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faHome, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { selectDarkModeStatus } from '../redux/selectors/darkModeSelector';
 
 const ContactUs = () => {
-  const isDarkModeOn = useSelector(selectDarkModeStatus);
+  // const isDarkModeOn = useSelector(selectDarkModeStatus);
+  const isDarkModeOn = true;
   const [containerStyle, setContainerStyle] = useState({});
   const [headingStyle, setHeadingStyle] = useState({});
   const [textStyle, setTextStyle] = useState({});
@@ -77,15 +79,17 @@ const ContactUs = () => {
           <Col>
             <div>
               <div>
-                <FontAwesomeIcon icon={faHome} />
                 <div>
-                  <h4 style={headingStyle}>Address</h4>
-                  <p style={textStyle}>116/969, Roshan Nagar, Near Ujageshwar Mandir,<br/> Rawatpur, Kanpur Nagar, Rawatpur Gaon, <br/> Uttar Pradesh, India, <br/> 208019</p>
+                  {/* <FontAwesomeIcon icon={faHome} style={{ marginRight: 8 }} /> */}
+                  <div>
+                    <h4 style={headingStyle}>Address</h4>
+                    <p style={textStyle}>116/969, Roshan Nagar, Near Ujageshwar Mandir,<br/> Rawatpur, Kanpur Nagar, Rawatpur Gaon, <br/> Uttar Pradesh, India, <br/> 208019</p>
+                  </div>
                 </div>
               </div>
 
               <div>
-                <FontAwesomeIcon icon={faPhone} />
+                {/* <FontAwesomeIcon icon={faPhone} style={{ marginRight: 8 }} /> */}
                 <div>
                   <h4 style={headingStyle}>Phone</h4>
                   <p style={textStyle}>6392074436</p>
@@ -93,7 +97,7 @@ const ContactUs = () => {
               </div>
 
               <div>
-                <FontAwesomeIcon icon={faEnvelope} />
+                {/* <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: 8 }} /> */}
                 <div>
                   <h4 style={headingStyle}>Email</h4>
                   <p style={textStyle}>nritya@nritya.co.in</p>

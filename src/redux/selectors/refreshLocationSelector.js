@@ -1,5 +1,6 @@
+'use client';
 export const selectRefreshLocation = (state) => {
-    const localFilterLocation = localStorage.getItem('filterLocation')? localStorage.getItem('filterLocation') :'New Delhi';
+    const localFilterLocation = 'New Delhi';
     console.log('Type of localFilterLocation:', typeof localFilterLocation);
   
     const reduxFilterLocation = state.refreshLocation.filterLocation;
