@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import { selectDarkModeStatus } from "../../redux/selectors/darkModeSelector";
-import service1Img from "../../assets/images/service-1.jpg";
-import service2Img from "../../assets/images/service-2.jpg";
-import service3Img from "../../assets/images/service-3.jpg";
-import service4Img from "../../assets/images/service-4.jpg";
-import service5Img from "../../assets/images/service-5.jpg";
-import service6Img from "../../assets/images/service-6.png";
+import service1Img from "../../../public/assets/images/service-1.jpg";
+import service2Img from "../../../public/assets/images/service-2.jpg";
+import service3Img from "../../../public/assets/images/service-3.jpg";
+import service4Img from "../../../public/assets/images/service-4.jpg";
+import service5Img from "../../../public/assets/images/service-5.jpg";
+import service6Img from "../../../public/assets/images/service-6.png";
 
 const ourServices = [
   {
@@ -107,7 +107,7 @@ const OurServices = () => {
               <Typography sx={{ fontSize: "20px" }}>{item.title}</Typography>
               <Box sx={{ mt: 1, width: "100%", height: "230px" }}>
                 <img
-                  src={item.image}
+                  src={item.image.src}
                   alt=""
                   style={{
                     width: "100%",

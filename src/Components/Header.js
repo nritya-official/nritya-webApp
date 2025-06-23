@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect, useState, lazy, Suspense } from 'react';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
@@ -26,8 +27,8 @@ import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import SearchIcon from '@mui/icons-material/Search';
 import './Header.css';
 import { Apartment, PlaceTwoTone } from '@mui/icons-material';
-import logoBig from '../assets/images/logo_large.png';
-import logoMobile from '../assets/images/logo_small.jpg';
+import logoBig from '../../public/assets/images/logo_large.png';
+import logoMobile from '../../public/assets/images/logo_small.jpg';
 
 const SideMenu = lazy(() => import('./SideMenu'));
 const LoginModalDailog = lazy(() => import('./LoginModalDailog'));
@@ -262,7 +263,7 @@ function Header() {
           {isMobile ? (
             <Navbar.Brand href="/nritya-webApp" style={{ textTransform: 'none' }}>
               <Image style={{ width: "4rem", height: "4rem" }}
-                src={logoMobile}
+                src={logoMobile.src}
                 alt="Logo"
                 roundedCircle={true}
               />
@@ -275,7 +276,7 @@ function Header() {
                 padding: 0,
                 objectFit: "contain"
               }}
-                src={logoBig}
+                src={logoBig.src}
                 alt="Logo"
               />
             </Navbar.Brand>

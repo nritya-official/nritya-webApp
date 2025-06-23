@@ -238,7 +238,7 @@ const EventBookingDialog = ({ open, onClose, workshopData }) => {
     }, [workshopData]);
 
     useEffect(() => {
-      if (process.env.REACT_APP_LIVE_CAPACITY_LEFT === 'true' && workshopData?.workshop_id){
+      if (process.env.NEXT_PUBLIC_LIVE_CAPACITY_LEFT === 'true' && workshopData?.workshop_id){
         const workshopId = "295add5d-403b-4b31-9a47-887039221ef2";  // Dummy UUID for testing
     
       const socket = new WebSocket(`ws://0.0.0.0:8000/ws/workshops/${workshopId}/`);
@@ -351,7 +351,7 @@ const EventBookingDialog = ({ open, onClose, workshopData }) => {
                             onChange={() => handleSubvariantSelect(variant.variant_id, sub.subvariant_id, sub.price)}
                           />
                         }
-                        disabled={process.env.REACT_APP_LIVE_CAPACITY_LEFT === 'true' && availablity && (availablity.get(sub.subvariant_id) ===0)}
+                        disabled={process.env.NEXT_PUBLIC_LIVE_CAPACITY_LEFT === 'true' && availablity && (availablity.get(sub.subvariant_id) ===0)}
                         
                         label={
                           <div>
@@ -361,7 +361,7 @@ const EventBookingDialog = ({ open, onClose, workshopData }) => {
                             <Typography variant="body2">₹{sub.price}</Typography>
                         
                             {
-                              process.env.REACT_APP_LIVE_CAPACITY_LEFT === 'true' &&
+                              process.env.NEXT_PUBLIC_LIVE_CAPACITY_LEFT === 'true' &&
                               availablity &&
                               availablity.get(sub.subvariant_id) >= 0 && (
                                 availablity.get(sub.subvariant_id) === 0 ? (

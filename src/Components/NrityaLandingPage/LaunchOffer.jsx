@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { Box, Container, Typography } from "@mui/material";
 import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 import { selectDarkModeStatus } from "../../redux/selectors/darkModeSelector";
-import launchOfferImg1 from "../../assets/images/launch-offer-img-1.png";
-import launchOfferImg2 from "../../assets/images/launch-offer-img-2.png";
+import launchOfferImg1 from "../../../public/assets/images/launch-offer-img-1.png";
+import launchOfferImg2 from "../../../public/assets/images/launch-offer-img-2.png";
 
 const LaunchOffer = () => {
   const isDarkMode = useSelector(selectDarkModeStatus);
@@ -41,7 +41,7 @@ const LaunchOffer = () => {
         >
           <Box
             component="img"
-            src={launchOfferImg1}
+            src={launchOfferImg1.src}
             alt="Decorative background image"
             sx={{
               position: "absolute",
@@ -60,7 +60,7 @@ const LaunchOffer = () => {
 
           <Box
             component="img"
-            src={launchOfferImg2}
+            src={launchOfferImg2.src}
             alt="Decorative foreground image"
             sx={{
               position: "absolute",
