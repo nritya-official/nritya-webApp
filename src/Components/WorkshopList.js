@@ -2,8 +2,8 @@ import React from "react";
 import { Box, createTheme, ThemeProvider, Typography } from "@mui/material";
 import { BASEURL_PROD } from "../constants";
 import QRCode from "react-qr-code";
-import venueIcon from "../assets/images/venue-icon.png";
-import venueIconWhite from "../assets/images/venue-icon-white.png";
+import venueIcon from "../../public/assets/images/venue-icon.png";
+import venueIconWhite from "../../public/assets/images/venue-icon-white.png";
 import { useSelector } from "react-redux";
 import { selectDarkModeStatus } from "../redux/selectors/darkModeSelector";
 
@@ -179,7 +179,7 @@ function WorkshopList({ bookingData, setWorkshopClickTicket }) {
                   }}
                 >
                   <img
-                    src={isDarkModeOn ? venueIconWhite : venueIcon}
+                    src={isDarkModeOn ? venueIconWhite.src : venueIcon.src}
                     alt="Venue"
                     style={{ width: "30px", height: "30px", marginRight: 4 }}
                   />

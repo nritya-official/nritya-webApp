@@ -22,6 +22,7 @@ import { bookEntity, formatDateString, getYoutubeVideoId } from "../utils/common
 
 import whatsAppImage from '../assets/images/whatsapp.png';
 import callImage from '../assets/images/india_11009487.png';
+import Link from "next/link";
 
 function OpenClassDetailsModal({
   open,
@@ -361,8 +362,8 @@ export default function NOpenClassCard({dataItem, studioIdName}) {
   }
 
   return (
-    <a
-    href={`#/openClass/${dataItem.id}`}
+    <Link
+    href={`/openClass/${dataItem.id}`}
     style={{ textDecoration: 'none', color: isDarkModeOn ? 'white' : 'black' }}>
       <Card
         variant="solid"
@@ -494,6 +495,6 @@ export default function NOpenClassCard({dataItem, studioIdName}) {
         open={isOpenClassDetailsModalOpen}
         handleClose={handleOpenClassDetailsModalClose}
       />
-    </a>
+    </Link>
   );
 }

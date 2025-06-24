@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {Box, Grid, CircularProgress, LinearProgress } from "@mui/material";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { COLLECTIONS, STORAGES, ENTITY_FLAG } from "../constants"; // Adjust the import paths as necessary
 import { readDocument, readDocumentWithImageUrl } from "../utils/firebaseUtils";
@@ -16,10 +16,12 @@ import { useAlert } from '../context/AlertContext';
 import PageMeta from "./PageMeta";
 import { useAuth } from "../context/AuthContext";
 import { useLoader } from "../context/LoaderContext";
+import { useParams } from "next/navigation";
  
 
 function AssociatedEntityFullPage({ entityCollectionName, storageCollectionName, defaultImageUrl }) {
-  const { entityId } = useParams();
+  const params = useParams();
+  const entityId = params.entityId ?? "";
   const { setIsLoading } = useLoader();
   const showAlert = useAlert();
   const navigate = useNavigate();

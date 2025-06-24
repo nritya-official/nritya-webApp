@@ -12,12 +12,12 @@ import {
 } from "@mui/material";
 import QRCode from "react-qr-code";
 import { BASEURL_PROD } from "../constants";
-import venueIcon from "../assets/images/venue-icon.png";
-import venueIconWhite from "../assets/images/venue-icon-white.png";
-import backIcon from "../assets/images/back-icon.png";
+import venueIcon from "../../public/assets/images/venue-icon.png";
+import venueIconWhite from "../../public/assets/images/venue-icon-white.png";
+import backIcon from "../../public/assets/images/back-icon.png";
 import { useSelector } from "react-redux";
 import { selectDarkModeStatus } from "../redux/selectors/darkModeSelector";
-import nearby from "../assets/images/nearby.png";
+import nearby from "../../public/assets/images/nearby.png";
 
 const theme = createTheme({
   typography: {
@@ -50,7 +50,7 @@ function WorkshopInformation({ workshopClickTicket, setWorkshopClickTicket }) {
           }}
         >
           <img
-            src={backIcon}
+            src={backIcon.src}
             alt="back"
             style={{ width: "50px", height: "50px" }}
           />
@@ -178,7 +178,7 @@ function WorkshopInformation({ workshopClickTicket, setWorkshopClickTicket }) {
               sx={{ mt: "30px", fontWeight: 600 }}
             >
               <img
-                src={isDarkModeOn ? venueIconWhite : venueIcon}
+                src={isDarkModeOn ? venueIconWhite.src : venueIcon.src}
                 alt="Venue"
                 style={{ width: "30px", height: "30px", marginRight: 4 }}
               />
@@ -211,7 +211,7 @@ function WorkshopInformation({ workshopClickTicket, setWorkshopClickTicket }) {
                 }}
                 endIcon={
                   <img
-                    src={nearby}
+                    src={nearby.src}
                     alt="Directions button"
                     style={{ width: "24px", height: "24px" }}
                   />

@@ -6,21 +6,54 @@ import LoaderProvider from '../context/LoaderContext';
 import store from '../redux/store';
 import MainLayout from '../Layout/MainLayout';
 
-import '../../src/index.css';
+import '../../src/globals.css';
 import '../../src/bootstrap.min.css'
-import '../utils/fontawesome';
+
+import { Instrument_Sans, Inter, Lato, Nunito_Sans } from 'next/font/google';
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false;
+
 
 // export const metadata = {
 //     title: 'Nritya',
 //     description: 'Nritya Web App',
 // };
 
+const instrumentSans = Instrument_Sans({
+  subsets: ['latin'],
+  variable: '--font-instrument-sans',
+  display: 'swap',
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+
+const lato = Lato({
+  subsets: ['latin'],
+  variable: '--font-lato',
+  display: 'swap',
+  weight: ['100', '300', '400', '700', '900'],
+})
+
+const nunitoSans = Nunito_Sans({
+  subsets: ['latin'],
+  variable: '--font-nunito-sans',
+  display: 'swap',
+  weight: ['200', '400', '700', '1000'],
+})
+
 export default function RootLayout({
     children
 }) {
     
     return (
-        <html lang="en">
+        <html lang="en" 
+        // className={`${instrumentSans.variable} ${inter.variable} ${lato.variable} ${nunitoSans.variable}`}
+        >
             <Head>
                 <meta charset="utf-8" />
                 <link rel="icon" href="./logo.png" />
@@ -38,6 +71,8 @@ export default function RootLayout({
                     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
                     crossOrigin="anonymous"
                 />
+                {/* Wittgenstein font (not available in next/font/google) */}
+                {/* <link href="https://fonts.googleapis.com/css2?family=Wittgenstein:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" /> */}
             </Head>
             <body>
                 <Provider store={store}>

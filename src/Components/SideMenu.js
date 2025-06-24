@@ -2,13 +2,15 @@ import { Offcanvas, Button } from 'react-bootstrap';
 import { auth } from '../config';
 import { selectDarkModeStatus } from '../redux/selectors/darkModeSelector';
 import { useSelector } from 'react-redux';
-import logo from './../logo.png';
+import logo from '../../public/logo.png';
 import './SideMenu.css';
 import {useEffect} from "react";
 import secureLocalStorage from 'react-secure-storage';
 import { setCreatorMode } from '../utils/firebaseUtils';
+import { useRouter } from 'next/navigation';
 
 function SideMenu({ showProfileOffcanvas, closeProfileOffcanvas }) {
+  const router = useRouter();
   const isDarkModeOn = useSelector(selectDarkModeStatus);
 
   const handleLogout = async () => {
@@ -46,10 +48,10 @@ function SideMenu({ showProfileOffcanvas, closeProfileOffcanvas }) {
   }, []);
 
   const regularMenuItems = [
-    { action: () => window.location.hash = '#/profile', name: 'Profile', show: true },
-    { action: () => window.location.hash = '#/transactions', name: 'Transactions',show:true },
+    { action: () => router.push('/profile'), name: 'Profile', show: true },
+    { action: () => router.push('/transactions'), name: 'Transactions',show:true },
     { action: () => window.location.hash = '#/creatorDashboard', name: 'Dashboard',show: secureLocalStorage.getItem('CreatorMode')  },
-    { action: () => window.location.hash = '#/myBookings', name: 'Bookings',show:true },
+    { action: () => router.push('/myBookings'), name: 'Bookings',show:true },
     { action: handleLogout, name: 'Sign Out',show:true },
   ];
 
@@ -64,7 +66,7 @@ function SideMenu({ showProfileOffcanvas, closeProfileOffcanvas }) {
       onHide={closeProfileOffcanvas}
     >
       <Offcanvas.Header closeButton>
-        <img style={{ width: '6rem', height: '6rem', borderRadius: '50%' }} src={logo} alt="Logo" />
+        <img style={{ width: '6rem', height: '6rem', borderRadius: '50%' }} src={logo.src} alt="Logo" />
       </Offcanvas.Header>
       <Offcanvas.Body>
         <ul className="menu">

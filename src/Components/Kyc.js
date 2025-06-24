@@ -10,6 +10,7 @@ import { validateField } from '../utils/validationUtils';
 import { postData } from '../utils/common.js';
 import './Kyc.css';
 import { LinearProgress, Typography } from '@mui/material';
+import Link from 'next/link'
 import indianCities from '../cities.json';
 import indianStates from '../states.json';
 
@@ -457,7 +458,7 @@ function Kyc() {
             onChange={handleTnCAgreement}/>
             <label class="form-check-label" for="exampleCheck1">
             <span style={{color: isDarkModeOn ? 'white' : 'black'}}>
-                I agree to the <a href="#/npoliciesStudio" style={{ color: isDarkModeOn ? 'lightblue' : 'blue' }}>Terms and Conditions. Click to read.</a>
+                I agree to the <Link href="/npoliciesStudio" style={{ color: isDarkModeOn ? 'lightblue' : 'blue' }}>Terms and Conditions. Click to read.</Link>
               </span>
             </label>
           </div>

@@ -8,14 +8,14 @@ import {
 } from "@mui/material";
 import QRCode from "react-qr-code";
 import { BASEURL_PROD } from "../constants";
-import venueIcon from "../assets/images/venue-icon.png";
-import venueIconWhite from "../assets/images/venue-icon-white.png";
+import venueIcon from "../../public/assets/images/venue-icon.png";
+import venueIconWhite from "../../public/assets/images/venue-icon-white.png";
 // import shareIcon from "../assets/images/share-icon.png";
-import backIcon from "../assets/images/back-icon.png";
+import backIcon from "../../public/assets/images/back-icon.png";
 import { useSelector } from "react-redux";
 import { selectDarkModeStatus } from "../redux/selectors/darkModeSelector";
 import { GrShare } from "react-icons/gr";
-import nearby from "../assets/images/nearby.png";
+import nearby from "../../public/assets/images/nearby.png";
 
 const theme = createTheme({
   typography: {
@@ -48,7 +48,7 @@ function BookingInformation({ currentClickTicket, setCurrentClickTicket }) {
           }}
         >
           <img
-            src={backIcon}
+            src={backIcon.src}
             alt="back"
             style={{ width: "50px", height: "50px" }}
           />
@@ -146,7 +146,7 @@ function BookingInformation({ currentClickTicket, setCurrentClickTicket }) {
             </Box>
 
             <Typography component="p" sx={{ fontWeight: 500 }}>
-              Check out the latest class timings <GrShare size={16} />
+              2Check out the latest class timings <GrShare size={16} />
             </Typography>
 
             <Typography
@@ -155,7 +155,7 @@ function BookingInformation({ currentClickTicket, setCurrentClickTicket }) {
               sx={{ mt: "12px", fontWeight: 600 }}
             >
               <img
-                src={isDarkModeOn ? venueIconWhite : venueIcon}
+                src={isDarkModeOn ? venueIconWhite.src : venueIcon.src}
                 alt="Venue"
                 style={{ width: "30px", height: "30px", marginRight: 4 }}
               />
@@ -187,7 +187,7 @@ function BookingInformation({ currentClickTicket, setCurrentClickTicket }) {
                 }}
                 endIcon={
                   <img
-                    src={nearby}
+                    src={nearby.src}
                     alt="Directions button"
                     style={{ width: "24px", height: "24px" }}
                   />

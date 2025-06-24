@@ -7,6 +7,7 @@ import { FiZoomIn } from "react-icons/fi";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import './MagnifyImage.css';
 import ProductCard from './NStudioCard';
+import Link from 'next/link';
 
 const CardSlider = ({ dataList, imgOnly = false }) => {
   //console.log("Debug from CardSlider", imgOnly);
@@ -99,13 +100,13 @@ const CardSlider = ({ dataList, imgOnly = false }) => {
           </a>
         ) : (
 
-          <a key={index} href={`#/studio/${entity.id}`}>
+          <Link key={index} href={`/studio/${entity.id}`}>
             <ProductCard
               key={entity.id}
               data={entity}
               img_src={entity.iconUrl}
             />
-          </a>
+          </Link>
         )
       ))}
       <Dialog open={open} onClose={handleClose}>

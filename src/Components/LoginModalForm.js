@@ -52,10 +52,10 @@ const LoginModalForm = ({ isLoggedIn, setIsLoggedIn }) => {
     return (
         <LoginBoxMain>
             <LoginLogo>
-                <img src={loginBoxLogo} alt="login-box-logo" style={{ width: '100%', height: 'auto' }} />
+                <img src={loginBoxLogo.src} alt="login-box-logo" style={{ width: '100%', height: 'auto' }} />
             </LoginLogo>
             <LoginText>
-                <img src={loginText} alt="login-text-img" style={{ width: '100%', height: 'auto' }} />
+                <img src={loginText.src} alt="login-text-img" style={{ width: '100%', height: 'auto' }} />
             </LoginText>
             <LoginPage onLogin={handleLogin} setIsLoggedIn={setIsLoggedIn} />
         </LoginBoxMain>

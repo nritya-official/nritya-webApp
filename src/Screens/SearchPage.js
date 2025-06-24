@@ -19,6 +19,8 @@ import NOpenClassCard from "../Components/NOpenClassCard";
 import NCourseCard from "../Components/NCourseCard";
 import { useMediaQuery } from '@mui/material';
 import { useLoader } from "../context/LoaderContext";
+import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const FILTER_LOCATION_KEY = "filterLocation";
 const FILTER_SEARCH_TYPE_KEY = "filterSearchType";
@@ -46,6 +48,7 @@ const SearchPage = () => {
   const { setIsLoading } = useLoader();
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
+  console.log("results",results);
   const [selectedDistances, setSelectedDistances] = useState("");
   const isDarkModeOn = useSelector(selectDarkModeStatus);
   const [showFilters, setShowFilters] = useState(false);
@@ -725,12 +728,12 @@ const SearchPage = () => {
                 style={{ padding: "0.2rem" }}
                 md={2}
               >
-                <a
-                  href={`#/studio/${studio.studioId}`}
+                <Link
+                  href={`/studio/${studio.id}`}
                   style={{ textDecoration: "none" }}
                 >
                   <CardSliderCard studio={studio} />
-                </a>
+                </Link>
               </div>
             ))
           )}

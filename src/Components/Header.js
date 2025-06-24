@@ -261,7 +261,7 @@ function Header() {
           )}
 
           {isMobile ? (
-            <Navbar.Brand href="/nritya-webApp" style={{ textTransform: 'none' }}>
+            <Navbar.Brand href="/" style={{ textTransform: 'none' }}>
               <Image style={{ width: "4rem", height: "4rem" }}
                 src={logoMobile.src}
                 alt="Logo"
@@ -269,7 +269,7 @@ function Header() {
               />
             </Navbar.Brand>
           ) : (
-            <Navbar.Brand href="/nritya-webApp" style={{ textTransform: 'none' }}>
+            <Navbar.Brand href="/" style={{ textTransform: 'none' }}>
               <Image style={{
                 width: "100%", height: "4rem", maxWidth: "200px",
                 margin: 0,
@@ -309,17 +309,17 @@ function Header() {
                 />
                 {currentUser ? (
                   <>
-                    <Button startIcon={<SearchIcon />} variant="outlined" className="search-box me-2 my-2 rounded-3 d-none d-lg-flex" href="#/search/studios" style={{ textTransform: 'none', borderColor: 'white', backgroundColor: 'white', color: 'black', borderWidth: '2px', height: '3rem', width: '12rem', justifyContent: 'left' }}>
+                    <Button startIcon={<SearchIcon />} variant="outlined" className="search-box me-2 my-2 rounded-3 d-none d-lg-flex" href="/search/studios" style={{ textTransform: 'none', borderColor: 'white', backgroundColor: 'white', color: 'black', borderWidth: '2px', height: '3rem', width: '12rem', justifyContent: 'left' }}>
                       Search
                     </Button>
-                    <Button startIcon={<Apartment />} variant="outlined" className="btn-hover-purple-bg me-2 my-2 rounded-3" href="#/modifyStudios" style={{ textTransform: 'none', borderColor: 'white', color: 'white', borderWidth: '2px', height: '3rem', width: '12rem' }}>List Studios</Button>
+                    <Button startIcon={<Apartment />} variant="outlined" className="btn-hover-purple-bg me-2 my-2 rounded-3" href="/modifyStudios" style={{ textTransform: 'none', borderColor: 'white', color: 'white', borderWidth: '2px', height: '3rem', width: '12rem' }}>List Studios</Button>
                   </>
                 ) : (
                   <>
-                    <Button startIcon={<SearchIcon />} variant="outlined" className="search-box me-2 my-2 rounded-3 d-none d-lg-flex" href="#/search/studios" style={{ textTransform: 'none', borderColor: 'white', backgroundColor: 'white', color: 'black', borderWidth: '2px', height: '3rem', width: '12rem', textAlign: 'left', justifyContent: 'left' }}>
+                    <Button startIcon={<SearchIcon />} variant="outlined" className="search-box me-2 my-2 rounded-3 d-none d-lg-flex" href="/search/studios" style={{ textTransform: 'none', borderColor: 'white', backgroundColor: 'white', color: 'black', borderWidth: '2px', height: '3rem', width: '12rem', textAlign: 'left', justifyContent: 'left' }}>
                       Search
                     </Button>
-                    <Button startIcon={<Apartment />} variant="outlined" className="btn-hover-purple-bg me-2 my-2 rounded-3" href="#/modifyStudios" style={{ textTransform: 'none', borderColor: 'white', color: 'white', borderWidth: '2px', height: '3rem', width: '12rem' }}> List Studios</Button>
+                    <Button startIcon={<Apartment />} variant="outlined" className="btn-hover-purple-bg me-2 my-2 rounded-3" href="/modifyStudios" style={{ textTransform: 'none', borderColor: 'white', color: 'white', borderWidth: '2px', height: '3rem', width: '12rem' }}> List Studios</Button>
                   </>
                 )}
               </Nav>
