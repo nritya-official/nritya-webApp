@@ -5,7 +5,6 @@ import { getStorage } from "firebase/storage";
 import {getAuth,GoogleAuthProvider } from "firebase/auth";
 
 const envType = process.env.NEXT_PUBLIC_ENV; // Get the environment from the environment variable
-debugger
 
 let firebaseConfig;
 

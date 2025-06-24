@@ -4,16 +4,16 @@ import { FaMinus, FaPlus } from "react-icons/fa";
 import { COLLECTIONS, ENTITY_FLAG } from "../constants";
 import { selectDarkModeStatus } from "../redux/selectors/darkModeSelector";
 import { useSelector } from "react-redux";
-import logoMobile from '../assets/images/logo_small.jpg';
+import logoMobile from '../../public/assets/images/logo_small.jpg';
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import RoomIcon from '@mui/icons-material/Room';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faIndianRupeeSign } from '@fortawesome/free-solid-svg-icons';
 import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
-import inrIcon from '../assets/images/inr.png'; // Adjust the path as necessary
-import locationIcon from '../assets/images/location.png';
-import clockIcon from '../assets/images/clock.png';
+import inrIcon from '../../public/assets/images/inr.png'; // Adjust the path as necessary
+import locationIcon from '../../public/assets/images/location.png';
+import clockIcon from '../../public/assets/images/clock.png';
 
 function formatDateString(dateString) {
   // Split the input date string
@@ -112,9 +112,9 @@ const EntityBookingCard = ({dataItem, personsAllowed, setPersonsAllowed,
               </Grid>
               <Grid style={{paddingTop:'0.5rem'}} container spacing={2} alignItems="center">
                   <Grid item>
-                  {clockIcon ? (
+                  {clockIcon.src ? (
                       <img 
-                          src={clockIcon} 
+                          src={clockIcon.src} 
                           alt="Location" 
                           style={{ width: 24, height: 24 }} // Adjust size as needed
                       />
@@ -131,9 +131,9 @@ const EntityBookingCard = ({dataItem, personsAllowed, setPersonsAllowed,
               </Grid>
               <Grid style={{paddingTop:'0.5rem'}} container spacing={2} alignItems="center">
                   <Grid item>
-                  {locationIcon ? (
+                  {locationIcon.src ? (
                       <img 
-                          src={locationIcon} 
+                          src={locationIcon.src} 
                           alt="Location" 
                           style={{ width: 24, height: 24 }} // Adjust size as needed
                       />
@@ -153,9 +153,9 @@ const EntityBookingCard = ({dataItem, personsAllowed, setPersonsAllowed,
               </Grid>
               <Grid  style={{paddingTop:'0.5rem'}} container spacing={2} alignItems="center">
                   <Grid item>
-                  {inrIcon ? (
+                  {inrIcon.src ? (
                       <img 
-                          src={inrIcon} 
+                          src={inrIcon.src} 
                           alt="INR" 
                           style={{ width: 24, height: 24 }} // Adjust size as needed
                       />
@@ -334,7 +334,7 @@ const EntityBookingCard = ({dataItem, personsAllowed, setPersonsAllowed,
                 alignItems: 'center', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
             }}
         >
-            <img src={logoMobile} alt="Icon"
+            <img src={logoMobile.src} alt="Icon"
                 style={{ width: '4rem', height: '4rem',borderRadius: '50%'
             }}
             />

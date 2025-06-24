@@ -24,7 +24,8 @@ import { bookEntity, formatDateString, getYoutubeVideoId } from "../utils/common
 
 import whatsAppImage from '../assets/images/whatsapp.png';
 import callImage from '../assets/images/india_11009487.png';
-
+import Link from "next/link";
+  
 function CourseDetailsModal({
   open,
   handleClose,
@@ -358,7 +359,7 @@ export default function NCourseCard({dataItem, studioIdName}) {
     thumbnail_url = `https://img.youtube.com/vi/${video_id}/maxresdefault.jpg`
   }
   return (
-    <a href={`#/course/${dataItem.id}`}
+    <Link href={`/course/${dataItem.id}`}
     style={{ textDecoration: 'none', color: isDarkModeOn ? 'white' : 'black' }}>
       <Card
         variant="solid"
@@ -473,6 +474,6 @@ export default function NCourseCard({dataItem, studioIdName}) {
         open={isCourseDetailsModalOpen}
         handleClose={handleCourseDetailsModalClose}
       />
-    </a>
+    </Link>
   );
 }

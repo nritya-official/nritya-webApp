@@ -4,6 +4,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaEnvelope } from 'react-icons/fa'
 import { useSelector } from 'react-redux';
 import { selectDarkModeStatus } from '../redux/selectors/darkModeSelector';
 import { styled } from '@mui/material/styles';
+import Link from 'next/link';
 
 
 
@@ -112,13 +113,13 @@ function Footer() {
                 Quick Links
               </Typography>
               <Typography variant="body2">
-                <a href="#/ourServices" style={linkStyle}>Our Services</a>
+                <Link href="/ourServices" style={linkStyle}>Our Services</Link>
               </Typography>
               <Typography variant="body2">
                 <a href="#/modifyStudios" style={linkStyle}>List Studios</a>
               </Typography>
               <Typography variant="body2">
-                <a href="#/search/studios" style={linkStyle}>Search Studios</a>
+                <Link href="/search/studios" style={linkStyle}>Search Studios</Link>
               </Typography>
             </Grid>
             <Grid item xs={12} sm={6} md={3} py={1}>
@@ -126,22 +127,22 @@ function Footer() {
                 Company
               </Typography>
               <Typography variant="body2">
-                <a href="#/npolicies/0" style={linkStyle}>Privacy Policy</a>
+                <Link href="/npolicies/0" style={linkStyle}>Privacy Policy</Link>
               </Typography>
               <Typography variant="body2">
-                <a href="#/npolicies/1" style={linkStyle}>Terms and Conditions</a>
+                <Link href="/npolicies/1" style={linkStyle}>Terms and Conditions</Link>
               </Typography>
               <Typography variant="body2">
-                <a href="#/npolicies/2" style={linkStyle}>Cancellation & Refund</a>
+                <Link href="/npolicies/2" style={linkStyle}>Cancellation & Refund</Link>
               </Typography>
               <Typography variant="body2">
-                <a href="#/npolicies/3" style={linkStyle}>Service Delivery</a>
+                <Link href="/npolicies/3" style={linkStyle}>Service Delivery</Link>
               </Typography>
               <Typography hidden variant="body2">
-                <a href="#/aboutus" style={linkStyle}>About Us</a>
+                <Link href="/aboutus" style={linkStyle}>About Us</Link>
               </Typography>
               <Typography variant="body2" sx={{textDecoration: 'none'}}>
-                <a href="#/contactus" style={linkStyle}>Contact Us</a>
+                <Link href="/contactus" style={linkStyle}>Contact Us</Link>
               </Typography>
             </Grid>
           </Grid>

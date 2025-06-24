@@ -40,8 +40,8 @@ import {
 const FORM_FIELD_HEIGHT = 56;
 
 const cardData = [
-  ["Transactions", "All", "#/transactions"],
-  ["My Bookings", "All", "#/myBookings"],
+  ["Transactions", "All", "/transactions"],
+  ["My Bookings", "All", "/myBookings"],
   ["Instructors", "Creator", "#/modifyInstructors"],
   ["Studios", "Creator", "#/modifyStudios"],
   ["Dashboard", "Creator", "#/creatorDashboard"],
@@ -688,7 +688,7 @@ function UserPage() {
                   </Typography>
                   <Typography
                     component="a"
-                    href="#/npoliciesStudio"
+                    href="/npoliciesStudio"
                     sx={{
                       color: isDarkModeOn ? "lightblue" : "blue",
                       textDecoration: "none",

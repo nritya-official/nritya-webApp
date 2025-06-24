@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { selectDarkModeStatus } from '../redux/selectors/darkModeSelector'; 
 import axios from 'axios';
 import { BASEURL_PROD } from '../constants';
-import logo from './../logo.png';
+import logo from '../../public/logo.png';
 import { Typography } from '@mui/material';
 import { useSnackbar } from '../context/SnackbarContext';
 
@@ -96,7 +96,7 @@ const TableView = ({ studioData, studioId }) => {
         <>
             <div style={{ textAlign: "center" }}>
               <img
-                src={logo}
+                src={logo.src}
                 alt="Nritya Icon"
                 style={{ width: "4rem", borderRadius: "50%" }}
               />

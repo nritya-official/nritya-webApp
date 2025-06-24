@@ -27,13 +27,12 @@ import axios from 'axios';
 import { FaPhoneAlt } from 'react-icons/fa';
 import PageMeta from '../Components/PageMeta.js';
 import { BASEURL_PROD } from './../constants.js';
-import nearby from '../assets/images/nearby.png';
+import nearby from '../../public/assets/images/nearby.png';
 import StudioTimingsTable from '../Components/StudioTimingsTable.jsx';
 import { useLoader } from '../context/LoaderContext.js';
 
-function StudioFullPage() {
+function StudioFullPage({studioId}) {
   const { setIsLoading } = useLoader();
-  const { studioId } = useParams();
   console.log("From StudioFullPage", studioId);
   const isDarkModeOn = useSelector(selectDarkModeStatus);
   const [studioData, setStudioData] = useState(null);
@@ -352,7 +351,7 @@ function StudioFullPage() {
                     rel="noopener noreferrer"
                   >
                     <img
-                      src={nearby}
+                      src={nearby.src}
                       alt="Directions"
                       style={{ width: "24px", height: "24px", filter: isDarkModeOn ? 'none' : 'invert(1)' }}
                     />

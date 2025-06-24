@@ -6,8 +6,7 @@ import { useParams } from 'react-router-dom';
 
 import { selectDarkModeStatus } from '../redux/selectors/darkModeSelector';
 
-const NrityaPolicyPages = () => {
-  const { selected } = useParams() || 0; 
+const NrityaPolicyPages = ({selected = 0}) => {
   const [selectedTab, setSelectedTab] = useState(0);
   const [policyData, setPolicyData] = useState(null);
   const isDarkModeOn = useSelector(selectDarkModeStatus); 

@@ -26,6 +26,7 @@ import EntitySkeleton from "../Components/EntitySkeleon";
 import { useLoader } from "../context/LoaderContext";
 import NrityaLandingPage from "./NrityaLandingPage";
 import ContactUsWidget from "../Components/ContactUsWidget";
+import { useRouter } from "next/navigation";
 
 const DanceCarousel = lazy(() => import("../Components/DanceCarousel"));
 const CardSlider = lazy(() => import("../Components/CardSlider"));
@@ -61,7 +62,7 @@ function LandingPage() {
   const [danceImagesUrl, setDanceImagesUrl] = useState([]);
   const [showLandingPage, setShowLandingPage] = useState(false);
   const isDarkModeOn = useSelector(selectDarkModeStatus);
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const handleCardClick = (danceName) => {
     localStorage.removeItem(FILTER_DISTANCES_KEY);
@@ -70,13 +71,13 @@ function LandingPage() {
       //console.log("API LandingPage done", danceName);
     }
     setTimeout(() => {
-      navigate("/search/studio");
+      router.push("/search/studio");
     }, 100);
   };
 
   const navigateToSearch = (entity) => {
     localStorage.setItem(FILTER_SEARCH_TYPE_KEY, entity);
-    navigate(`/search/${entity}`);
+    router.push(`/search/${entity}`);
   };
 
   const cardStyle = {
@@ -256,7 +257,7 @@ function LandingPage() {
                   }
                   variant="outlined"
                   className="me-2 rounded-3"
-                  href="#/search/studios"
+                  href="/search/studios"
                   style={buttonStyle}
                 >
                   Search

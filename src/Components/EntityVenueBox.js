@@ -3,9 +3,9 @@ import { Grid, Typography as MUITypography, Box, IconButton,Button, Chip } from 
 import { selectDarkModeStatus } from "../redux/selectors/darkModeSelector";
 import { useSelector } from "react-redux";
 import { FaDirections } from "react-icons/fa";
-import locationIcon from '../assets/images/location.png';
+import locationIcon from '../../public/assets/images/location.png';
 import { RoomServiceOutlined } from "@mui/icons-material";
-import nearby from '../assets/images/nearby.png';
+import nearby from '../../public/assets/images/nearby.png';
 
 function EntityVenueBox({dataItem}) {
     const isDarkModeOn = useSelector(selectDarkModeStatus);
@@ -21,9 +21,9 @@ function EntityVenueBox({dataItem}) {
         >
           <Box display="flex" alignItems="center">
             <Grid item>
-              {locationIcon ? (
+              {locationIcon.src ? (
                 <img 
-                  src={locationIcon} 
+                  src={locationIcon.src} 
                   alt="Location" 
                   style={{ width: 24, height: 24 }} // Adjust size as needed
                 />
@@ -67,7 +67,7 @@ function EntityVenueBox({dataItem}) {
       }}
       endIcon={
         <img
-          src={nearby} // Replace with your image URL or import
+          src={nearby.src} // Replace with your image URL or import
           alt="Directions"
           style={{ width: "24px", height: "24px", filter: isDarkModeOn ? 'invert(1)' : 'none' }} // Adjust size as needed
         />
