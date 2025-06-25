@@ -15,6 +15,7 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import { Box } from '@mui/material';
+import Link from 'next/link';
 
 
 
@@ -178,9 +179,9 @@ function CreatorStudio() {
         {studio.length > 0 ? (
           studio.map((studio, index) => (
             <Col key={index}>
-              <a href={`#/studio/${studio.studioId}`} style={{ textDecoration: "none" }}>
+              <Link href={`/studio/${studio.studioId}`} style={{ textDecoration: "none" }}>
                 <CardSliderCard studio={studio}/>
-              </a>
+              </Link>
           </Col>
           ))
         ) : (

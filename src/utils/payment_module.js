@@ -1,6 +1,6 @@
 // payment_module.js
 import axios from "axios";
-import logo from '../logo.png';
+import logo from '../../public/logo.png';
 
 
 // Load Razorpay Script
@@ -105,7 +105,7 @@ export async function displayRazorpayPaymentSdk({
     currency: currency,
     name: "Nritya",
     description: `${collection_name} Booking`,
-    image: logo,
+    image: logo.src,
     order_id: orderId,
     prefill: {
       name: currentName,

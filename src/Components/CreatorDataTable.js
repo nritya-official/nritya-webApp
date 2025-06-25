@@ -75,6 +75,7 @@ const CreatorDataTable = () => {
   };
 
   const getEntityLink = (entity) => {
+    // need to change this to nextjs link
     const baseLink = "https://nritya-official.github.io/nritya-webApp/#/";
     const { EntityType, EntityId } = entity;
 

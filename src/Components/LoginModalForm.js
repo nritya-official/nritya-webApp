@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { styled } from '@mui/system';
-import loginBoxLogo from '../../src/Components/DanceImg/Nritya_Login_logo.png';
-import loginText from '../../src/Components/DanceImg/Lets_dance.png';
+import loginBoxLogo from '../../public/assets/images/DanceImg/Nritya_Login_logo.png';
+import loginText from '../../public/assets/images/DanceImg/Lets_dance.png';
 import LoginPage from "../Screens/LoginPage";
 
 // Styled components using `styled`

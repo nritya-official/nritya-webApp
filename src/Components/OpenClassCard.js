@@ -21,8 +21,8 @@ import dayjs from "dayjs";
 import { db } from "../config";
 import { addDoc, collection, doc, getDoc, updateDoc } from "firebase/firestore";
 import { useSnackbar } from "../context/SnackbarContext";
-import whatsAppImage from '../assets/images/whatsapp.png';
-import callImage from '../assets/images/india_11009487.png';
+import whatsAppImage from '../../public/assets/images/whatsapp.png';
+import callImage from '../../public/assets/images/india_11009487.png';
 import ShareButton from "./ShareButton";
 
 function WorkshopDetailsModal({
@@ -96,7 +96,7 @@ function WorkshopDetailsModal({
 
   const isBooked = userDetails?.BookedOpenClasses?.includes?.(dataItem?.id);
 
-  const shareUrl = `${window.location.host}/nritya-webApp#/openClass/${dataItem.id}`;
+  const shareUrl = `${window.location.host}/openClass/${dataItem.id}`;
 
   return (
     <Modal
@@ -232,12 +232,12 @@ function WorkshopDetailsModal({
               <span>By {dataItem.studioDetails?.studioName || ""}</span>
               {dataItem.studioDetails && dataItem.studioDetails?.whatsappNumber && (
                 <IconButton color="success" size="small" target="_blank" href={`https://wa.me/91${dataItem.studioDetails.whatsappNumber}?text=${whatsappMessage}`}>
-                  <img src={whatsAppImage} alt="Whatsapp call" style={{ width: 30, height: 28 }} />
+                  <img src={whatsAppImage.src} alt="Whatsapp call" style={{ width: 30, height: 28 }} />
                 </IconButton>
               )}
               {dataItem.studioDetails && dataItem.studioDetails?.mobileNumber && (
                 <IconButton color="primary" size="small" target="_blank" href={`tel:${dataItem.studioDetails.mobileNumber}`}>
-                  <img src={callImage} alt="Phone call" style={{ width: 30, height: 28 }} />
+                  <img src={callImage.src} alt="Phone call" style={{ width: 30, height: 28 }} />
                 </IconButton>
               )}
             </MUITypography>

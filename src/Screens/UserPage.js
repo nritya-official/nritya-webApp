@@ -42,9 +42,9 @@ const FORM_FIELD_HEIGHT = 56;
 const cardData = [
   ["Transactions", "All", "/transactions"],
   ["My Bookings", "All", "/myBookings"],
-  ["Instructors", "Creator", "#/modifyInstructors"],
-  ["Studios", "Creator", "#/modifyStudios"],
-  ["Dashboard", "Creator", "#/creatorDashboard"],
+  ["Instructors", "Creator", "/modifyInstructors"],
+  ["Studios", "Creator", "/modifyStudios"],
+  ["Dashboard", "Creator", "/creatorDashboard"],
 ];
 
 const locationOptions = indianCities.cities;

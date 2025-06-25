@@ -3,11 +3,11 @@ import { Card, CardContent, Typography, Stack, Chip, Tooltip, Button } from "@mu
 import { useNavigate } from "react-router-dom";
 import DraftTimeInfo from "./DraftTimeInfo"; 
 import { formatDateToReadable, getDraftStatus } from '../utils/timeUtils';
-import  Dance8  from '../Components/DanceImg/Dance8.jpg';
+import  Dance8  from '../../public/assets/images/DanceImg/Dance8.jpg';
 import { STORAGES } from "../constants";
 
 const WorkshopCardForOwner = ({ workshop, isDarkModeOn, onEdit, onDelete, readDocumentWithImageUrl }) => {
-  const [imageUrl, setImageUrl] = useState(Dance8);
+  const [imageUrl, setImageUrl] = useState(Dance8.src);
   const navigate = useNavigate();
 
   useEffect(() => {

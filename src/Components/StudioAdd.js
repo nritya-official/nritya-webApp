@@ -24,6 +24,7 @@ import { postData } from '../utils/common';
 import { isEqual } from 'lodash';
 import StudioWeeklyTimings from './StudioWeeklyTiming';
 import { useSnackbar } from '../context/SnackbarContext';
+import Link from 'next/link';
 
 const encodeToUnicode = (text) => {
   const textEncoder = new TextEncoder();
@@ -777,14 +778,14 @@ function StudioAdd({instructors}) {
                     />
                   </ThemeProvider>
                 </Row> 
-                <a href="#/modifyInstructors" rel="noreferrer" target="_blank" style={{ textDecoration: 'none', color: isDarkModeOn ? 'cyan' : 'blue' }}>
+                <Link href="/modifyInstructors" rel="noreferrer" target="_blank" style={{ textDecoration: 'none', color: isDarkModeOn ? 'cyan' : 'blue' }}>
                       Go to Instrcutors' Add/update Page? 
-                    </a>
+                    </Link>
                 <hr></hr>   
                 
                 <h3 style={{ backgroundColor: isDarkModeOn ? '#202020' : '', color: isDarkModeOn ? 'white' : 'black' }}>Class Schedule *</h3>
                   <span>Time Table Of dance classes</span>
-                    <div style={{ overflowX: 'auto', whiteSpace: 'nowrap', scrollbarColor: isDarkModeOn ? '#888 #333' : '#ccc #fff', }}>
+                    <div style={{ overflowX: 'auto', whiteSpace: 'nowrap', scrollbarColor: isDarkModeOn ? '#888 #333' : '#ccc #fff', }}>  
                       <StudioTable
                         tableData={tableData}
                         setTableData={setTableData}
