@@ -2,13 +2,13 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import {Box, Grid, CircularProgress, LinearProgress, Typography, Button, Chip, Divider, Dialog, DialogTitle, DialogContent, Card, CardContent, DialogActions, FormControlLabel, Checkbox, TextField } from "@mui/material";
-import  Dance8  from '../Components/DanceImg/Dance8.jpg';
+import  Dance8  from '../../public/assets/images/DanceImg/Dance8.jpg';
 import { readDocumentWithImageUrl } from '../utils/firebaseUtils';
 import { BASEURL_PROD, STORAGES } from '../constants';
 import MediaDisplay from '../Components/MediaDisplay';
 import ShareButton from "../Components/ShareButton";
 import { CHIP_LEVELS_DESIGN } from "../constants";
-import nearby from '../assets/images/nearby.png';
+import nearby from '../../public/assets/images/nearby.png';
 import { useSelector } from 'react-redux';
 import { selectDarkModeStatus } from '../redux/selectors/darkModeSelector';
 import { formatDateString } from '../utils/common';
@@ -18,9 +18,9 @@ import RoomIcon from '@mui/icons-material/Room';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faIndianRupeeSign } from '@fortawesome/free-solid-svg-icons';
 import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
-import inrIcon from '../assets/images/inr.png'; // Adjust the path as necessary
-import locationIcon from '../assets/images/location.png';
-import clockIcon from '../assets/images/clock.png';
+import inrIcon from '../../public/assets/images/inr.png'; // Adjust the path as necessary
+import locationIcon from '../../public/assets/images/location.png';
+import clockIcon from '../../public/assets/images/clock.png';
 import { RoomServiceOutlined } from '@mui/icons-material';
 import EventBookingDialog from './EventBookingDialog';
 import {convertTo12HourFormat} from '../utils/timeUtils';
@@ -49,7 +49,7 @@ function NewWorkshop() {
     const { workshopId } = useParams();
     const [workshopData, setWorkshopData] = useState(null);
     const [startTime, setStartTime] = useState(null);
-    const [imageUrl, setImageUrl] = useState(Dance8);
+    const [imageUrl, setImageUrl] = useState(Dance8.src);
     const isDarkModeOn = useSelector(selectDarkModeStatus);
     const [totalPrice, setTotalPrice] = useState(0);
     const [isBooking, setIsBooking] = useState(false);
@@ -164,9 +164,9 @@ function NewWorkshop() {
                     </Grid>
                     <Grid style={{paddingTop:'0.5rem'}} container spacing={2} alignItems="center">
                         <Grid item>
-                        {clockIcon ? (
+                        {clockIcon.src ? (
                             <img 
-                                src={clockIcon} 
+                                src={clockIcon.src} 
                                 alt="Location" 
                                 style={{ width: 24, height: 24 }} // Adjust size as needed
                             />
@@ -183,9 +183,9 @@ function NewWorkshop() {
                     </Grid>
                     <Grid style={{paddingTop:'0.5rem'}} container spacing={2} alignItems="center">
                         <Grid item>
-                        {locationIcon ? (
+                        {locationIcon.src ? (
                             <img 
-                                src={locationIcon} 
+                                src={locationIcon.src} 
                                 alt="Location" 
                                 style={{ width: 24, height: 24 }} // Adjust size as needed
                             />
@@ -205,9 +205,9 @@ function NewWorkshop() {
                     </Grid>
                     <Grid  style={{paddingTop:'0.5rem'}} container spacing={2} alignItems="center">
                         <Grid item>
-                        {inrIcon ? (
+                        {inrIcon.src ? (
                             <img 
-                                src={inrIcon} 
+                                src={inrIcon.src} 
                                 alt="INR" 
                                 style={{ width: 24, height: 24 }} // Adjust size as needed
                             />
@@ -365,9 +365,9 @@ function NewWorkshop() {
         >
           <Box display="flex" alignItems="center">
             <Grid item>
-              {locationIcon ? (
+              {locationIcon.src ? (
                 <img 
-                  src={locationIcon} 
+                  src={locationIcon.src} 
                   alt="Location" 
                   style={{ width: 24, height: 24 }} // Adjust size as needed
                 />
@@ -411,7 +411,7 @@ function NewWorkshop() {
                 }}
                 endIcon={
                   <img
-                    src={nearby} // Replace with your image URL or import
+                    src={nearby.src} // Replace with your image URL or import
                     alt="Directions"
                     style={{ width: "24px", height: "24px", filter: isDarkModeOn ? 'invert(1)' : 'none' }} // Adjust size as needed
                   />

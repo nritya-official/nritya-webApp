@@ -198,6 +198,7 @@ function MyBookings() {
       </Container>
       <br />
       <p style={{ textDecoration: "none" }}>
+        {/* Need to change this to nextjs link */}
         <a
           href={`https://nritya-official.github.io/nritya-webApp/#/studio/${bookingData.associated_studio_id}`}
           target="_blank"

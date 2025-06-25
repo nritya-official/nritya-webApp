@@ -23,6 +23,7 @@ import { putData } from "../utils/common";
 import StudioWeeklyTimings from "./StudioWeeklyTiming";
 import { useSnackbar } from "../context/SnackbarContext";
 import { updateDaysFormat } from "../utils/mapping";
+import Link from "next/link";
 
 const initialStudioTimings = {
   monday: [{ open: "09:00 AM", close: "06:00 PM" }],
@@ -698,8 +699,8 @@ function StudioUpdate({
                     )}
                   />
                 </ThemeProvider>
-                <a
-                  href="#/modifyInstructors"
+                <Link
+                  href="/modifyInstructors"
                   rel="noreferrer"
                   target="_blank"
                   style={{
@@ -708,7 +709,7 @@ function StudioUpdate({
                   }}
                 >
                   Go to Instrcutors' Add/update Page?
-                </a>
+                </Link>
               </Row>
             </div>
           </Col>

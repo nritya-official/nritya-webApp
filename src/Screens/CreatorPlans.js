@@ -4,7 +4,7 @@ import Alert from 'react-bootstrap/Alert';
 import Spinner from 'react-bootstrap/Spinner';
 import { db } from '../config';
 import { doc, getDoc, setDoc, addDoc, collection, getDocs } from "firebase/firestore";
-import logo from '../logo.png';
+import logo from '../../public/logo.png';
 import SubscriptionAdd from '../utils/SubscriptionAdd';
 import './CreatorPlans.css';
 import { useSelector } from 'react-redux';
@@ -26,7 +26,7 @@ const handlePayment = async (price, item, duration) => {
       currency: 'INR', // Replace with the transaction currency
       name: 'Nritya', // Replace with your store name
       description: 'Payment for ' + item, // Replace with the transaction description
-      image: logo, // Replace with your store logo URL
+      image: logo.src, // Replace with your store logo URL
       handler: async function (response) {
         // Handle success callback
         console.log('Payment successful!', response);

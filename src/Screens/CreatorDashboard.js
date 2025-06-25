@@ -6,6 +6,7 @@ import { queryDocumentsCount } from '../utils/firebaseUtils';
 import { COLLECTIONS } from '../constants';
 import { Card, CardContent, Typography, Grid, Icon } from '@mui/material';
 import CreatorDataTable from '../Components/CreatorDataTable.js';
+import Link from 'next/link';
 
 function CreatorDashboard() {
   const [counts, setCounts] = useState({
@@ -41,15 +42,15 @@ function CreatorDashboard() {
   
   const isDashboardModuleVisible = process.env.NEXT_PUBLIC_DASHBOARD_MODULES_VISIBLE === "true";
   const cardItems = [
-    { title: "Total Studios", data: counts.studiosCount, link: "#/modifyStudios" },
-    { title: "Total Instructors", data: counts.instructorsCount, link: "#/modifyInstructors" },
-    { title: "Total Workshops", data: counts.workshopsCount, link: "#/workshops" },
+    { title: "Total Studios", data: counts.studiosCount, link: "/modifyStudios" },
+    { title: "Total Instructors", data: counts.instructorsCount, link: "/modifyInstructors" },
+    { title: "Total Workshops", data: counts.workshopsCount, link: "/workshops" },
   ];
   if (isDashboardModuleVisible) {
     cardItems.push(
-      { title: "Total Open Classes", data: counts.openClassesCount, link: "#/modifyOpenClasses" },
-      { title: "Total Courses", data: counts.coursesCount, link: "#/modifyCourses" },
-      { title: "Studio Subscription", data: counts.coursesCount, link: "#/studioSubscription" }
+      { title: "Total Open Classes", data: counts.openClassesCount, link: "/modifyOpenClasses" },
+      { title: "Total Courses", data: counts.coursesCount, link: "/modifyCourses" },
+      { title: "Studio Subscription", data: counts.coursesCount, link: "/studioSubscription" }
     );
   }
 
@@ -67,9 +68,9 @@ function CreatorDashboard() {
                 <Typography variant="h6" component="div" sx={{color:isDarkModeOn?"white":"black"}}>
                   <>
                     {item.title}
-                    <a href={item.link} >
+                    <Link href={item.link} >
                       <Icon baseClassName="fas" className="fa-plus-circle" color="primary" />
-                    </a>
+                    </Link>
                   </>
                 </Typography>
                 <Typography variant="h4" sx={{color:isDarkModeOn?"white":"black"}} >{item.data}</Typography>

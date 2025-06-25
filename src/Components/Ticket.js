@@ -5,12 +5,12 @@ import html2canvas from 'html2canvas';
 import QRCode from 'react-qr-code';
 import { Button,Image } from 'react-bootstrap';
 import { BASEURL_PROD } from '../constants';
-import ticketLogo from '../assets/images/ticket-logo.png';
-import ticketBallroomDance from '../assets/images/ticket-ballroom-dance.png';
-import ticketDanceImage1 from '../assets/images/ticket-dance-image-1.png';
-import ticketDanceImage2 from '../assets/images/ticket-dance-image-2.png';
-import ticketDanceImage3 from '../assets/images/ticket-dance-image-3.png';
-import ticketDanceImage4 from '../assets/images/ticket-dance-image-4.png';
+import ticketLogo from '../../public/assets/images/ticket-logo.png';
+import ticketBallroomDance from '../../public/assets/images/ticket-ballroom-dance.png';
+import ticketDanceImage1 from '../../public/assets/images/ticket-dance-image-1.png';
+import ticketDanceImage2 from '../../public/assets/images/ticket-dance-image-2.png';
+import ticketDanceImage3 from '../../public/assets/images/ticket-dance-image-3.png';
+import ticketDanceImage4 from '../../public/assets/images/ticket-dance-image-4.png';
 const TimeZone = { "IST": 'Asia/Kolkata' };
 
 function Ticket({ studioName, className, address, timing, days, customerName, timestamp, bookingId }) {
@@ -47,7 +47,7 @@ function Ticket({ studioName, className, address, timing, days, customerName, ti
       <div id="nritya-ticket-container" className="nritya-ticket-card">
         <div className="nritya-ticket-card-header">
         <Image style={{ width: 120, height: 104}}
-            src={ticketLogo}
+            src={ticketLogo.src}
             alt="Logo" 
             roundedCircle={true}      
             />
@@ -57,10 +57,10 @@ function Ticket({ studioName, className, address, timing, days, customerName, ti
           <p style={{ fontSize: '18px' }} className="ticket-text">{address}</p>
 
           <div style={{marginTop: "10px", marginBottom: '26px'}} className='d-flex justify-content-around'>
-            <Image style={{ width: 70, height: 70 }} src={ticketDanceImage1} alt="" roundedCircle={true} />
-            <Image style={{ width: 70, height: 70 }} src={ticketDanceImage2} alt="" roundedCircle={true} />
-            <Image style={{ width: 70, height: 70 }} src={ticketDanceImage3} alt="" roundedCircle={true} />
-            <Image style={{ width: 70, height: 70 }} src={ticketDanceImage4} alt="" roundedCircle={true} />
+            <Image style={{ width: 70, height: 70 }} src={ticketDanceImage1.src} alt="" roundedCircle={true} />
+            <Image style={{ width: 70, height: 70 }} src={ticketDanceImage2.src} alt="" roundedCircle={true} />
+            <Image style={{ width: 70, height: 70 }} src={ticketDanceImage3.src} alt="" roundedCircle={true} />
+            <Image style={{ width: 70, height: 70 }} src={ticketDanceImage4.src} alt="" roundedCircle={true} />
           </div>
         </div>
         <div className="nritya-ticket-card-body">
@@ -70,7 +70,7 @@ function Ticket({ studioName, className, address, timing, days, customerName, ti
           </div>
           <p className="ticket-text">Booking ID:<br />{bookingId}</p>
           <p style={{marginTop: 20}} className="ticket-text">Valid till 30 days<br />{convertToLocal(timestamp)}</p>
-          <Image style={{ width: 60, height: 60 }} src={ticketBallroomDance} alt="" roundedCircle={true} />
+          <Image style={{ width: 60, height: 60 }} src={ticketBallroomDance.src} alt="" roundedCircle={true} />
           <p style={{ fontSize: 24 }} className="ticket-text">Admit One for Once</p>
         </div>
       </div>

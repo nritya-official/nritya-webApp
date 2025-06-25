@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../logo.png';
+import logo from '../../public/logo.png';
 import axios from "axios";
 import { Button } from '@mui/joy';
 import { BASEURL_PROD } from '../constants';
@@ -66,7 +66,7 @@ function PayButton() {
       currency: currency,
       name: "Nritya",
       description: "Test Transaction",
-      image: logo,
+      image: logo.src,
       order_id: orderId,
       
       prefill: {

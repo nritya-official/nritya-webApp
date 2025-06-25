@@ -5,7 +5,7 @@ import {
   Accordion, AccordionSummary, AccordionDetails
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Dance8 from '../Components/DanceImg/Dance8.jpg';
+import Dance8 from '../../public/assets/images/DanceImg/Dance8.jpg';
 
 const WorkshopDetailsPage = () => {
     const data = {
@@ -121,7 +121,7 @@ const WorkshopDetailsPage = () => {
         {/* Image on LHS */}
         <Grid item xs={12} sm={4}>
         <img 
-            src={Dance8} 
+            src={Dance8.src} 
             alt="Workshop" 
             style={{ width: '100%', borderRadius: 8 }}
         />

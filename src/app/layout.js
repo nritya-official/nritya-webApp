@@ -54,7 +54,7 @@ export default function RootLayout({
         <html lang="en" 
         // className={`${instrumentSans.variable} ${inter.variable} ${lato.variable} ${nunitoSans.variable}`}
         >
-            <Head>
+                <head>
                 <meta charset="utf-8" />
                 <link rel="icon" href="./logo.png" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -73,7 +73,7 @@ export default function RootLayout({
                 />
                 {/* Wittgenstein font (not available in next/font/google) */}
                 {/* <link href="https://fonts.googleapis.com/css2?family=Wittgenstein:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" /> */}
-            </Head>
+            </head>
             <body>
                 <Provider store={store}>
                     <AuthProvider>

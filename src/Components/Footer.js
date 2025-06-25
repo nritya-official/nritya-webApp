@@ -116,7 +116,7 @@ function Footer() {
                 <Link href="/ourServices" style={linkStyle}>Our Services</Link>
               </Typography>
               <Typography variant="body2">
-                <a href="#/modifyStudios" style={linkStyle}>List Studios</a>
+                <Link href="/modifyStudios" style={linkStyle}>List Studios</Link>
               </Typography>
               <Typography variant="body2">
                 <Link href="/search/studios" style={linkStyle}>Search Studios</Link>

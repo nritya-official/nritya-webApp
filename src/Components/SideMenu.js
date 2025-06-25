@@ -50,7 +50,7 @@ function SideMenu({ showProfileOffcanvas, closeProfileOffcanvas }) {
   const regularMenuItems = [
     { action: () => router.push('/profile'), name: 'Profile', show: true },
     { action: () => router.push('/transactions'), name: 'Transactions',show:true },
-    { action: () => window.location.hash = '#/creatorDashboard', name: 'Dashboard',show: secureLocalStorage.getItem('CreatorMode')  },
+    { action: () => router.push('/creatorDashboard'), name: 'Dashboard',show: secureLocalStorage.getItem('CreatorMode')  },
     { action: () => router.push('/myBookings'), name: 'Bookings',show:true },
     { action: handleLogout, name: 'Sign Out',show:true },
   ];

@@ -9,6 +9,7 @@ import StarRating from './StarRating';
 import { useSelector } from 'react-redux';
 import { selectDarkModeStatus } from '../redux/selectors/darkModeSelector'; 
 import './StudioCard.css'
+import Link from 'next/link';
 
 function StudioCard({studioName,studioAddress,studioTiming,studioPrice,studioInstructors,studioDanceStyles,
                     studioContactNumber,studioId,averageRating,forceSmallView,}) {
@@ -153,9 +154,9 @@ function StudioCard({studioName,studioAddress,studioTiming,studioPrice,studioIns
                 />
               </div>
             </div>
-            <a href={"#/studio/" + studioId}>
+            <Link href={"/studio/" + studioId}>
             <Button variant="outline-warning" className="me-2 rounded-pill mb-2 d-flex justify-content-center align-items-center" size="sm" style={{ fontSize: '1.4rem' }}>Explore</Button>
-            </a>
+            </Link>
             {/* Buttons for larger screens */}
             <div className="d-none d-md-flex justify-content-center">
               <ButtonGroup>
