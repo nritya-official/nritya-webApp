@@ -1,5 +1,6 @@
 'use client';
 import React, { useEffect, useState, lazy, Suspense } from 'react';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -85,6 +86,9 @@ function Header() {
   const [selectedLocation, setSelectedLocation] = useState(localStorage.getItem(FILTER_LOCATION_KEY) ? localStorage.getItem(FILTER_LOCATION_KEY) : 'New Delhi');
   const [showLocationDropdown, setShowLocationDropdown] = useState(false);
   const [searchText, setSearchText] = useState('');
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const navigate = useNavigate();
   const { currentUser, showSignInModal, setShowSignInModal } = useAuth();
   const dispatch = useDispatch();
@@ -121,6 +125,11 @@ function Header() {
 
   useEffect(() => {
     localStorage.setItem(FILTER_LOCATION_KEY, selectedLocation);
+    // Update the URL with the selected location
+    const currentSearchParams = new URLSearchParams(window.location.search);
+    currentSearchParams.set('location', selectedLocation);
+    const newUrl = `${window.location.pathname}?${currentSearchParams.toString()}`;
+    if (selectedLocation) router.push(newUrl);
   }, [selectedLocation]);
 
   useEffect(() => {
