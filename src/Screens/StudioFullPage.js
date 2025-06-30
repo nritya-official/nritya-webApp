@@ -1,10 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+"use client";
+import React from 'react';
 import { Container, Row, Col, Button, Badge, Stack } from 'react-bootstrap';
-import { db } from '../config';
-import { doc, getDoc, getDocs, collection, updateDoc, where, query } from "firebase/firestore";
-import { COLLECTIONS, AMENITIES_ICONS, STUDIO_ICON_DEFAULT } from "./../constants.js";
-import { FaYoutube, FaFacebook, FaInstagram, FaTwitter, FaDirections } from 'react-icons/fa';
+import { AMENITIES_ICONS, STUDIO_ICON_DEFAULT } from "./../constants.js";
+import { FaYoutube, FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 import './Carousel.css';
 import MapReadOnly from '../Components/MapReadOnly';
 import { FaMapMarker, FaWhatsapp } from 'react-icons/fa';
@@ -17,83 +15,19 @@ import NrityaCard from '../Components/NrityaCard.js';
 import TableView from './TableView.js';
 import '../Common.css'
 import CardSlider from '../Components/CardSlider.js';
-import WorkshopCardSlider from '../Components/WorkshopCardSlider.js';
 import OpenClassCardSlider from '../Components/OpenClassCardSlider.js';
 import CourseCardSlider from '../Components/CourseCardSlider.js';
-import { fetchStudioEntities } from '../utils/firebaseUtils.js';
 import Typography from '@mui/joy/Typography';
 import { Chip, Grid } from '@mui/material';
-import axios from 'axios';
 import { FaPhoneAlt } from 'react-icons/fa';
 import PageMeta from '../Components/PageMeta.js';
-import { BASEURL_PROD } from './../constants.js';
 import nearby from '../../public/assets/images/nearby.png';
 import StudioTimingsTable from '../Components/StudioTimingsTable.jsx';
-import { useLoader } from '../context/LoaderContext.js';
 
-function StudioFullPage({studioId}) {
-  const { setIsLoading } = useLoader();
-  console.log("From StudioFullPage", studioId);
-  const isDarkModeOn = useSelector(selectDarkModeStatus);
-  const [studioData, setStudioData] = useState(null);
-  const [carouselImages, setCarouselImages] = useState([]);
-  const [announcementImages, setAnnouncementImages] = useState([]);
-  const [workshops, setWorkshops] = useState([]);
-  const [openClasses, setOpenClasses] = useState([]);
-  const [courses, setCourses] = useState([]);
-  const [carouselLoading, setCarouselLoading] = useState(false);
-
-  const BASEURL_STUDIO = `${BASEURL_PROD}api/studio/`
-  useEffect(() => {
-    console.log(BASEURL_STUDIO)
-    const fetchData = async () => {
-      try {
-        setIsLoading(true);
-        if (JSON.parse(localStorage.getItem('userInfo')) && JSON.parse(localStorage.getItem('userInfo')).UserId) {
-          //const UserId = JSON.parse(localStorage.getItem('userInfo')).UserId
-          console.log("Recently watched disabled")
-          //updateRecentlyWatchedInFirebase(UserId, studioId);
-        }
-        setCarouselLoading(true);
-        const responseText = await axios.get(`${BASEURL_STUDIO}${studioId}/text/`);
-        const dataText = responseText.data;
-        setStudioData(dataText);
-        const responseImages = await axios.get(`${BASEURL_STUDIO}${studioId}/images/`);
-        const dataImages = responseImages.data;
-        if (dataImages && dataImages.StudioImages) {
-          const responseImages = dataImages.StudioImages;
-          const filteredImages = Array.isArray(responseImages) 
-            ? responseImages.filter(image => typeof image === 'string' && !image.includes(`${studioId}/?Expire`))
-            : [];
-          setCarouselImages(filteredImages);
-        }
-        
-        if (dataImages && dataImages.StudioAnnouncements) {
-          setAnnouncementImages(dataImages.StudioAnnouncements)
-        }
-        console.log(studioData);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setIsLoading(false);
-        setCarouselLoading(false);
-      }
-
-    };
-
-    fetchData();
-  }, []);
+function StudioFullPage({ studioId, studioData, carouselImages, announcementImages, openClasses, workshops, courses }) {
+  const isDarkModeOn = useSelector(selectDarkModeStatus);  
 
   const whatsappMessage = encodeURIComponent("Hey, I found your Studio on nritya.co.in. I'm interested");
-  useEffect(() => {
-    setIsLoading(true);
-
-    Promise.all([
-      fetchStudioEntities(studioId, COLLECTIONS.OPEN_CLASSES, setOpenClasses),
-      fetchStudioEntities(studioId, COLLECTIONS.WORKSHOPS, setWorkshops),
-      fetchStudioEntities(studioId, COLLECTIONS.COURSES, setCourses),
-    ]).finally(() => setIsLoading(false));
-  }, [studioId]);
 
   return (
     <Container fluid style={{ backgroundColor: isDarkModeOn ? '#202020' : 'white', color: isDarkModeOn ? 'white' : 'color' }}>
@@ -105,59 +39,59 @@ function StudioFullPage({studioId}) {
       <Row>
         <Col lg={8} className='d-flex'>
           <div className='contentWrapper-main'>
-          
-          <Row>
-            <Col sm={11} xs={12}>
-              <Typography
-                variant="h2"
-                component="h2"
-                style={{
-                  color: isDarkModeOn ? 'white' : 'black',
-                  fontSize: '1.5rem',
-                  textTransform: 'none',
-                }}
-              >
-                {studioData ? studioData.studioName : ""}
-              </Typography>
-            </Col>
-            <Col sm ={1} xs={12} className="d-flex align-items-center justify-content-end">
-            {studioData && studioData.avgRating > 0 && studioData.ratedBy > 0 ? (
-              <>
-                <span style={{ color: 'goldenrod' }}>⭐{studioData.avgRating.toFixed(1)}</span>
-                <span style={{ color: isDarkModeOn ? 'white' : 'black' }}> ({studioData.ratedBy})</span>
-              </>
-            ) : ""}
 
-            </Col>
-          </Row>
-   
+            <Row>
+              <Col sm={11} xs={12}>
+                <Typography
+                  variant="h2"
+                  component="h2"
+                  style={{
+                    color: isDarkModeOn ? 'white' : 'black',
+                    fontSize: '1.5rem',
+                    textTransform: 'none',
+                  }}
+                >
+                  {studioData ? studioData.studioName : ""}
+                </Typography>
+              </Col>
+              <Col sm={1} xs={12} className="d-flex align-items-center justify-content-end">
+                {studioData && studioData.avgRating > 0 && studioData.ratedBy > 0 ? (
+                  <>
+                    <span style={{ color: 'goldenrod' }}>⭐{studioData.avgRating.toFixed(1)}</span>
+                    <span style={{ color: isDarkModeOn ? 'white' : 'black' }}> ({studioData.ratedBy})</span>
+                  </>
+                ) : ""}
+
+              </Col>
+            </Row>
+
 
             <div className='socialRatings'>
               {studioData && (studioData.facebook || studioData.youtube || studioData.instagram || studioData.twitter) && (
                 <>
-                <div style={{ display: 'flex', justifyContent: 'left' }}>
-                  {studioData.youtube && (
-                    <a href={studioData.youtube} target="_blank" rel="noopener noreferrer">
-                      <FaYoutube className='genericHoverEffect' style={{ color: isDarkModeOn ? '#fff' : '#000', fontSize: '24px', marginRight: '10px' }} />
-                    </a>
-                  )}
-                  {studioData.facebook && (
-                    <a href={studioData.facebook} target="_blank" rel="noopener noreferrer">
-                      <FaFacebook className='genericHoverEffect' style={{ color: isDarkModeOn ? '#fff' : '#000', fontSize: '24px', marginRight: '10px' }} />
-                    </a>
-                  )}
-                  {studioData.instagram && (
-                    <a href={studioData.instagram} target="_blank" rel="noopener noreferrer">
-                      <FaInstagram className='genericHoverEffect' style={{ color: isDarkModeOn ? '#fff' : '#000', fontSize: '24px', marginRight: '0px' }} />
-                    </a>
-                  )}
-                  {studioData.twitter && (
-                    <a href={studioData.twitter} target="_blank" rel="noopener noreferrer">
-                      <FaTwitter className='genericHoverEffect' style={{ color: isDarkModeOn ? '#fff' : '#000', fontSize: '24px' }} />
-                    </a>
-                  )}
-                </div>
-              </>
+                  <div style={{ display: 'flex', justifyContent: 'left' }}>
+                    {studioData.youtube && (
+                      <a href={studioData.youtube} target="_blank" rel="noopener noreferrer">
+                        <FaYoutube className='genericHoverEffect' style={{ color: isDarkModeOn ? '#fff' : '#000', fontSize: '24px', marginRight: '10px' }} />
+                      </a>
+                    )}
+                    {studioData.facebook && (
+                      <a href={studioData.facebook} target="_blank" rel="noopener noreferrer">
+                        <FaFacebook className='genericHoverEffect' style={{ color: isDarkModeOn ? '#fff' : '#000', fontSize: '24px', marginRight: '10px' }} />
+                      </a>
+                    )}
+                    {studioData.instagram && (
+                      <a href={studioData.instagram} target="_blank" rel="noopener noreferrer">
+                        <FaInstagram className='genericHoverEffect' style={{ color: isDarkModeOn ? '#fff' : '#000', fontSize: '24px', marginRight: '0px' }} />
+                      </a>
+                    )}
+                    {studioData.twitter && (
+                      <a href={studioData.twitter} target="_blank" rel="noopener noreferrer">
+                        <FaTwitter className='genericHoverEffect' style={{ color: isDarkModeOn ? '#fff' : '#000', fontSize: '24px' }} />
+                      </a>
+                    )}
+                  </div>
+                </>
               )}
             </div>
             <div className='textWrapper' style={{ paddingBottom: '0.5rem' }}>
@@ -227,7 +161,7 @@ function StudioFullPage({studioId}) {
       </Row>
       <br></br>
 
-        {!carouselLoading ?
+      {true ?
         <>
       {carouselImages.length ?  <Row>
           <CardSlider dataList={carouselImages} imgOnly={true} />
@@ -409,9 +343,9 @@ function StudioFullPage({studioId}) {
       <br></br>
       <Row className="justify-content-center">
         <Col xs="auto">
-       { JSON.parse(localStorage.getItem('userInfo')) && JSON.parse(localStorage.getItem('userInfo')).UserId && (
-          <Ratings userID={JSON.parse(localStorage.getItem('userInfo')) ? JSON.parse(localStorage.getItem('userInfo')).UserId : null} studioID={studioId}></Ratings>
-        )}
+          {JSON.parse(localStorage.getItem('userInfo')) && JSON.parse(localStorage.getItem('userInfo')).UserId && (
+            <Ratings userID={JSON.parse(localStorage.getItem('userInfo')) ? JSON.parse(localStorage.getItem('userInfo')).UserId : null} studioID={studioId}></Ratings>
+          )}
         </Col>
       </Row>
       <br></br>

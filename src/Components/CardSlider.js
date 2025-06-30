@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect, useRef } from 'react';
 import { Card as MuiCard } from '@mui/joy';
 import { useState } from 'react';

@@ -108,8 +108,7 @@ function LandingPage({ studioIdName, exploreEntity, danceImagesUrl }) {
       const exploreData = Object.values(exploreEntity).flat();
       const isEmpty = exploreData.length === 0 || exploreData.every(
         (entity) => Object.keys(entity).length === 0
-      );
-      console.log("LandingPage isEmpty", isEmpty);
+      );        
       // if (isEmpty) {
       setShowLandingPage(isEmpty);
       // } else {
@@ -117,6 +116,8 @@ function LandingPage({ studioIdName, exploreEntity, danceImagesUrl }) {
       // }
     })();
   }, [exploreEntity]);
+
+  console.log("exploreEntity", exploreEntity);
 
   return (
     <>

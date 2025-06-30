@@ -39,8 +39,7 @@ const fetchAndSaveData = async (city, entities) => {
         const exploreData = Object.values(combinedData).flat();
         const isEmpty =
             exploreData.length === 0 ||
-            exploreData.every((obj) => Object.keys(obj).length === 0);
-            console.log("from server action isEmpty", isEmpty);
+            exploreData.every((obj) => Object.keys(obj).length === 0);            
         return combinedData;
     } catch (error) {
         console.error("Fetch error:", error);
