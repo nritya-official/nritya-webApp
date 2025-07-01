@@ -76,15 +76,14 @@
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build",
         "dev": "next dev",
-        "start": "next start",
-        "start:dev": "env-cmd -f .env.dev react-scripts start",
-        "start:staging": "env-cmd -f .env.staging react-scripts start",
-        "start:production": "env-cmd -f .env.production react-scripts start",
+        "start": "env-cmd -f .env.staging next start",
+        "start:dev": "env-cmd -f .env.dev next start",
+        "start:staging": "env-cmd -f .env.staging next start",
+        "start:production": "env-cmd -f .env.production next start",
         "build:staging": "env-cmd -f .env.staging next build",
         "build:production": "env-cmd -f .env.production next build",
-        "build": "env-cmd -f .env.staging react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "build": "env-cmd -f .env.staging next build",      
+        "lint": "next lint"      
     },
     "eslintConfig": {
         "extends": [
