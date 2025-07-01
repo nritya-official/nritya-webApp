@@ -6,7 +6,6 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Skeleton from "@mui/material/Skeleton";
 import MUIButton from "@mui/material/Button";
-import axios from "axios";
 import Box from "@mui/material/Box";
 import { COLLECTIONS } from "../constants";
 import {
@@ -19,9 +18,7 @@ import "./LandingPage.css";
 import { useSelector } from "react-redux";
 import { selectDarkModeStatus } from "../redux/selectors/darkModeSelector";
 import LocationComponent from "../Components/LocationComponent";
-import { useNavigate } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
-import { BASEURL_PROD } from "../constants";
 import EntitySkeleton from "../Components/EntitySkeleon";
 import { useLoader } from "../context/LoaderContext";
 import NrityaLandingPage from "./NrityaLandingPage";
@@ -50,16 +47,16 @@ const danceForms = [
 const FILTER_DISTANCES_KEY = "filterDistances";
 const FILTER_DANCE_FORMS_KEY = "filterDanceForms";
 
-function LandingPage() {
+function LandingPage({ studioIdName, exploreEntity, danceImagesUrl }) {
   const { setIsLoading } = useLoader();
-  const [exploreEntity, setExploreEntity] = useState({
-    [COLLECTIONS.STUDIO]: {},
-    [COLLECTIONS.WORKSHOPS]: {},
-    [COLLECTIONS.OPEN_CLASSES]: {},
-    [COLLECTIONS.COURSES]: {},
-  });
-  const [studioIdName, setStudioIdName] = useState({});
-  const [danceImagesUrl, setDanceImagesUrl] = useState([]);
+  // const [exploreEntity, setExploreEntity] = useState({
+  //   [COLLECTIONS.STUDIO]: {},
+  //   [COLLECTIONS.WORKSHOPS]: {},
+  //   [COLLECTIONS.OPEN_CLASSES]: {},
+  //   [COLLECTIONS.COURSES]: {},
+  // });
+  // const [studioIdName, setStudioIdName] = useState({});
+  // const [danceImagesUrl, setDanceImagesUrl] = useState([]);
   const [showLandingPage, setShowLandingPage] = useState(false);
   const isDarkModeOn = useSelector(selectDarkModeStatus);
   const router = useRouter();
@@ -97,122 +94,30 @@ function LandingPage() {
   };
 
   useEffect(() => {
-    const retryFetch = async (url, options = {}, retries = 5, delay = 1000) => {
-      for (let i = 0; i < retries; i++) {
-        try {
-          const response = await fetch(url, options);
-          if (!response.ok) {
-            throw new Error(`Network response was not ok`);
-          }
-          return await response.json();
-        } catch (error) {
-          if (i < retries - 1) {
-            console.warn(
-              `Retrying after ${delay} fetch (${
-                i + 1
-              }/${retries}) for ${url} due to error:`,
-              error
-            );
-            await new Promise((res) => setTimeout(res, delay)); // wait before retrying
-            delay *= 1.5;
-          } else {
-            throw error; // Throw error after exhausting retries
-          }
-        }
-      }
-    };
+    (async function () {
+      // setIsLoading(true);
+      // const filterLocation = localStorage.getItem("filterLocation") || "New Delhi";
+      // const { studioIdNameData, exploreEntityData } = await fetchData(filterLocation);
+      // const filteredImages = await fetchImages();
 
-    const fetchAndSaveData = async (city, entities) => {
-      try {
-        const promises = entities.map((entity) => {
-          const apiEndpoint = `${BASEURL_PROD}api/search/?&city=${city}&entity=${entity}`;
-          return retryFetch(apiEndpoint).then((data) => ({ [entity]: data }));
-        });
+      // setStudioIdName(studioIdNameData);
+      // setExploreEntity(exploreEntityData);
+      // setDanceImagesUrl(filteredImages);
 
-        const allData = await Promise.all(promises);
-        const combinedData = Object.assign({}, ...allData);
-        const exploreData = Object.values(combinedData).flat();
-        const isEmpty =
-          exploreData.length === 0 ||
-          exploreData.every((obj) => Object.keys(obj).length === 0);
-        setShowLandingPage(isEmpty);
+      // Check if the exploreEntity is empty
+      const exploreData = Object.values(exploreEntity).flat();
+      const isEmpty = exploreData.length === 0 || exploreData.every(
+        (entity) => Object.keys(entity).length === 0
+      );        
+      // if (isEmpty) {
+      setShowLandingPage(isEmpty);
+      // } else {
+      // setShowLandingPage(true);
+      // }
+    })();
+  }, [exploreEntity]);
 
-        return combinedData;
-      } catch (error) {
-        setShowLandingPage(true);
-        console.error("Fetch error:", error);
-        throw error;
-      }
-    };
-
-    const fetchIdNameMp = async (city) => {
-      try {
-        const apiEndpoint = `${BASEURL_PROD}api/autocomplete/?&city=${city}`;
-        return await retryFetch(apiEndpoint);
-      } catch (error) {
-        console.error("Error in processing:", error);
-        throw error;
-      }
-    };
-
-    const fetchData = async () => {
-      try {
-        setIsLoading(true);
-        let filterLocation = localStorage.getItem("filterLocation");
-        if (!filterLocation || filterLocation === "null") {
-          filterLocation = "New Delhi";
-        }
-
-        const entities = [
-          COLLECTIONS.STUDIO,
-          COLLECTIONS.WORKSHOPS,
-          COLLECTIONS.COURSES,
-          COLLECTIONS.OPEN_CLASSES,
-        ];
-
-        // Fetch both `fetchIdNameMp` and `fetchAndSaveData` concurrently
-        const [studioIdNameData, exploreEntityData] = await Promise.all([
-          fetchIdNameMp(filterLocation),
-          fetchAndSaveData(filterLocation, entities),
-        ]);
-
-        setStudioIdName(studioIdNameData);
-        setExploreEntity(exploreEntityData);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        setIsLoading(true);
-        const response = await axios.get(`${BASEURL_PROD}api/landingPageImages/`);
-        const data = response.data.signed_urls;
-
-      if (Array.isArray(data)) {
-        const imageUrlsArray = data;
-          const filteredImages = imageUrlsArray.filter(image => typeof image === 'string' && !image.includes("LandingPageImages/?Expire"));
-
-        
-        setDanceImagesUrl(filteredImages);
-      } else {
-        console.error("Expected an array but got:", data);
-      }
-      } catch (error) {
-        console.error("Error fetching images:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchImages();
-  }, []);
+  console.log("exploreEntity", exploreEntity);
 
   return (
     <>
@@ -286,7 +191,7 @@ function LandingPage() {
                         Explore Studios
                       </h3>
                       {Object.keys(exploreEntity[COLLECTIONS.STUDIO]).length >
-                      4 ? (
+                        4 ? (
                         <MUIButton
                           sx={{
                             color: "white",
@@ -316,7 +221,7 @@ function LandingPage() {
               {/* Workshops Section */}
               {exploreEntity[COLLECTIONS.WORKSHOPS] &&
                 Object.keys(exploreEntity[COLLECTIONS.WORKSHOPS]).length >
-                  0 && (
+                0 && (
                   <>
                     <Box
                       sx={{
@@ -363,7 +268,7 @@ function LandingPage() {
               {/* Open Classes Section */}
               {exploreEntity[COLLECTIONS.OPEN_CLASSES] &&
                 Object.keys(exploreEntity[COLLECTIONS.OPEN_CLASSES]).length >
-                  0 && (
+                0 && (
                   <>
                     <Box
                       sx={{
@@ -427,7 +332,7 @@ function LandingPage() {
                         Explore Courses
                       </h3>
                       {Object.keys(exploreEntity[COLLECTIONS.COURSES]).length >
-                      4 ? (
+                        4 ? (
                         <MUIButton
                           sx={{
                             color: "white",

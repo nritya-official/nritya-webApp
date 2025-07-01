@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import './TableView.css';
 import { Button, Table, Modal, Spinner, Card } from 'react-bootstrap';

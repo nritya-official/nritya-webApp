@@ -1,5 +1,10 @@
 "use client";
-import WorkshopAdd from "../../../../../Components/WorkshopAdd";
+import dynamic from "next/dynamic";
+
+const WorkshopAdd = dynamic(
+  () => import("../../../../../Components/WorkshopAdd"),
+  { ssr: false }
+);
 
 export default function WorkshopCreatePage() {
   return <WorkshopAdd />;

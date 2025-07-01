@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect, useState } from "react";
 import AspectRatio from "@mui/joy/AspectRatio";
 import Card from "@mui/joy/Card";
